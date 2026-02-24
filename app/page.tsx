@@ -25,14 +25,9 @@ export default function Home() {
   const [roomSlide, setRoomSlide] = useState(0);
   const roomsPerSlide = 3;
   const totalSlides = Math.ceil(hotelData.rooms.length / roomsPerSlide);
-
   const nextSlide = () => setRoomSlide((prev) => (prev + 1) % totalSlides);
   const prevSlide = () => setRoomSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-
-  const visibleRooms = hotelData.rooms.slice(
-    roomSlide * roomsPerSlide,
-    roomSlide * roomsPerSlide + roomsPerSlide
-  );
+  const visibleRooms = hotelData.rooms.slice(roomSlide * roomsPerSlide, roomSlide * roomsPerSlide + roomsPerSlide);
 
   return (
     <main className="min-h-screen" style={{ backgroundColor: 'var(--cream)', color: 'var(--warm-brown)' }}>
@@ -80,26 +75,55 @@ export default function Home() {
             {hotelData.description}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-up delay-4">
+          <div className="flex flex-col sm:flex-row gap-5 justify-center items-center fade-in-up delay-4">
+            {/* Bouton principal — terracotta avec bande ochre décorative */}
             <Link href="#chambres">
               <button
-                className="px-8 py-4 text-lg font-semibold tracking-wide transition-all duration-300 hover:scale-105"
+                className="group relative px-9 py-4 font-semibold uppercase transition-all duration-300 overflow-hidden"
                 style={{
                   background: 'var(--terracotta)',
-                  color: 'white',
+                  color: 'var(--cream)',
                   borderRadius: '2px',
                   fontFamily: "'Playfair Display', serif",
-                  boxShadow: '0 4px 20px rgba(196,85,26,0.4)',
-                  border: '1px solid var(--terracotta-light)'
+                  letterSpacing: '0.15em',
+                  fontSize: '14px',
+                  boxShadow: '0 0 0 1px rgba(212,137,42,0.5), 0 8px 32px rgba(196,85,26,0.5)',
                 }}>
-                Découvrir nos chambres
+                <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: 'linear-gradient(135deg, rgba(212,137,42,0.2) 0%, transparent 60%)' }} />
+                <span className="absolute bottom-0 left-0 right-0 h-0.5"
+                  style={{ background: 'repeating-linear-gradient(90deg, var(--ochre) 0, var(--ochre) 6px, transparent 6px, transparent 10px)' }} />
+                <span className="relative flex items-center gap-3">
+                  <span style={{ color: 'var(--ochre-light)', fontSize: '10px' }}>◆</span>
+                  Découvrir nos chambres
+                  <span style={{ color: 'var(--ochre-light)', fontSize: '10px' }}>◆</span>
+                </span>
               </button>
             </Link>
-            <WhatsAppButton
-              message={whatsappMessage}
-              size="lg"
-              className="text-lg px-8 py-4"
-            />
+
+            {/* Bouton WhatsApp — outline verre dépoli */}
+            <button
+              onClick={() => window.open(`https://wa.me/593995941029?text=${encodeURIComponent(whatsappMessage)}`, '_blank')}
+              className="group relative px-9 py-4 font-semibold uppercase transition-all duration-300 overflow-hidden"
+              style={{
+                background: 'rgba(255,255,255,0.07)',
+                color: 'var(--cream)',
+                borderRadius: '2px',
+                fontFamily: "'Playfair Display', serif",
+                backdropFilter: 'blur(8px)',
+                border: '1px solid rgba(245,239,224,0.3)',
+                letterSpacing: '0.15em',
+                fontSize: '14px',
+              }}>
+              <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ background: 'rgba(255,255,255,0.05)' }} />
+              <span className="relative flex items-center gap-3">
+                <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                Réserver par WhatsApp
+              </span>
+            </button>
           </div>
         </div>
 
@@ -226,37 +250,22 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Carousel container */}
           <div className="relative">
-            {/* Navigation buttons */}
             <button
               onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110"
-              style={{ 
-                background: 'var(--terracotta)', 
-                color: 'white',
-                borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                transform: 'translateY(-50%) translateX(-50%)'
-              }}
+              className="absolute left-0 top-1/2 z-10 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110"
+              style={{ background: 'var(--terracotta)', color: 'white', borderRadius: '50%', boxShadow: '0 4px 12px rgba(0,0,0,0.2)', transform: 'translateY(-50%) translateX(-50%)' }}
             >
               <ChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110"
-              style={{ 
-                background: 'var(--terracotta)', 
-                color: 'white',
-                borderRadius: '50%',
-                boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
-                transform: 'translateY(-50%) translateX(50%)'
-              }}
+              className="absolute right-0 top-1/2 z-10 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110"
+              style={{ background: 'var(--terracotta)', color: 'white', borderRadius: '50%', boxShadow: '0 4px 12px rgba(0,0,0,0.2)', transform: 'translateY(-50%) translateX(50%)' }}
             >
               <ChevronRight className="w-6 h-6" />
             </button>
 
-            {/* Rooms grid with overflow hidden */}
             <div className="overflow-hidden mx-8">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {visibleRooms.map((room) => (
@@ -265,17 +274,13 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Slide indicators */}
             <div className="flex justify-center gap-2 mt-8">
               {Array.from({ length: totalSlides }, (_, i) => (
                 <button
                   key={i}
                   onClick={() => setRoomSlide(i)}
                   className="w-3 h-3 rounded-full transition-all duration-300"
-                  style={{
-                    background: roomSlide === i ? 'var(--terracotta)' : 'var(--cream-dark)',
-                    transform: roomSlide === i ? 'scale(1.2)' : 'scale(1)'
-                  }}
+                  style={{ background: roomSlide === i ? 'var(--terracotta)' : 'var(--cream-dark)', transform: roomSlide === i ? 'scale(1.2)' : 'scale(1)' }}
                 />
               ))}
             </div>
@@ -398,31 +403,89 @@ export default function Home() {
               </div>
 
               <div className="mb-10">
-                <h3 className="font-semibold mb-4 text-lg" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-                  Suivez-nous
+                <h3 className="font-semibold mb-5 text-base uppercase tracking-[0.2em]"
+                  style={{ fontFamily: "'Playfair Display', serif", color: 'var(--terracotta)', fontSize: '12px' }}>
+                  ◆ &nbsp;Suivez-nous
                 </h3>
                 <div className="flex gap-3">
                   <a href={hotelData.socialMedia.instagram} target="_blank" rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center rounded-sm transition-transform hover:scale-110"
-                    style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}>
-                    <Instagram className="w-5 h-5 text-white" />
+                    className="group flex items-center gap-2.5 px-4 py-2.5 transition-all duration-300 hover:scale-105"
+                    style={{
+                      background: 'var(--cream-dark)',
+                      borderRadius: '2px',
+                      border: '1px solid rgba(61,43,31,0.12)',
+                      color: 'var(--warm-brown)',
+                      fontFamily: "'Crimson Pro', serif",
+                      fontSize: '14px',
+                    }}>
+                    <span className="w-7 h-7 flex items-center justify-center flex-shrink-0 rounded-sm"
+                      style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}>
+                      <Instagram className="w-3.5 h-3.5 text-white" />
+                    </span>
+                    <span className="font-medium">Instagram</span>
                   </a>
                   <a href={hotelData.socialMedia.facebook} target="_blank" rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center rounded-sm transition-transform hover:scale-110"
-                    style={{ background: '#1877f2' }}>
-                    <Facebook className="w-5 h-5 text-white" />
+                    className="group flex items-center gap-2.5 px-4 py-2.5 transition-all duration-300 hover:scale-105"
+                    style={{
+                      background: 'var(--cream-dark)',
+                      borderRadius: '2px',
+                      border: '1px solid rgba(61,43,31,0.12)',
+                      color: 'var(--warm-brown)',
+                      fontFamily: "'Crimson Pro', serif",
+                      fontSize: '14px',
+                    }}>
+                    <span className="w-7 h-7 flex items-center justify-center flex-shrink-0 rounded-sm"
+                      style={{ background: '#1877f2' }}>
+                      <Facebook className="w-3.5 h-3.5 text-white" />
+                    </span>
+                    <span className="font-medium">Facebook</span>
                   </a>
                   <a href={hotelData.socialMedia.tiktok} target="_blank" rel="noopener noreferrer"
-                    className="w-12 h-12 flex items-center justify-center rounded-sm transition-transform hover:scale-110"
-                    style={{ background: '#010101' }}>
-                    <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
-                    </svg>
+                    className="group flex items-center gap-2.5 px-4 py-2.5 transition-all duration-300 hover:scale-105"
+                    style={{
+                      background: 'var(--cream-dark)',
+                      borderRadius: '2px',
+                      border: '1px solid rgba(61,43,31,0.12)',
+                      color: 'var(--warm-brown)',
+                      fontFamily: "'Crimson Pro', serif",
+                      fontSize: '14px',
+                    }}>
+                    <span className="w-7 h-7 flex items-center justify-center flex-shrink-0 rounded-sm"
+                      style={{ background: '#010101' }}>
+                      <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
+                      </svg>
+                    </span>
+                    <span className="font-medium">TikTok</span>
                   </a>
                 </div>
               </div>
 
-              <WhatsAppButton message={whatsappMessage} size="lg" className="w-full" />
+              {/* WhatsApp contact button — style andéen sobre */}
+              <button
+                onClick={() => window.open(`https://wa.me/593995941029?text=${encodeURIComponent(whatsappMessage)}`, '_blank')}
+                className="group relative w-full py-4 font-semibold uppercase transition-all duration-300 overflow-hidden"
+                style={{
+                  background: 'var(--warm-brown)',
+                  color: 'var(--cream)',
+                  borderRadius: '2px',
+                  fontFamily: "'Playfair Display', serif",
+                  letterSpacing: '0.15em',
+                  fontSize: '13px',
+                  boxShadow: '0 4px 20px rgba(61,43,31,0.2)',
+                }}>
+                {/* Bande textile top */}
+                <span className="absolute top-0 left-0 right-0 h-0.5"
+                  style={{ background: 'repeating-linear-gradient(90deg, var(--terracotta) 0, var(--terracotta) 8px, var(--ochre) 8px, var(--ochre) 16px, var(--teal) 16px, var(--teal) 24px, var(--ochre) 24px, var(--ochre) 32px)' }} />
+                <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: 'rgba(255,255,255,0.04)' }} />
+                <span className="relative flex items-center justify-center gap-3">
+                  <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                  </svg>
+                  Contacter via WhatsApp
+                </span>
+              </button>
             </div>
 
             <div className="h-96 md:h-full min-h-[400px] rounded-sm overflow-hidden shadow-2xl"

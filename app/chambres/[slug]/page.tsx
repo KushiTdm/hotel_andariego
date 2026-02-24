@@ -1,14 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, Users, Wifi, Tv, ShowerHead, Home, CheckCircle } from 'lucide-react';
-import { format, addDays } from 'date-fns';
+import { ArrowLeft, Users, Wifi, Tv, ShowerHead, Home, CheckCircle, CalendarDays, X } from 'lucide-react';
+import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import { DatePicker } from '@/components/DatePicker';
+import { Calendar } from '@/components/ui/calendar';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
 import hotelData from '@/data/hotel.json';
+
+// Image salle de bain commune à toutes les chambres
+const BATHROOM_IMAGE = {
+  src: '/assets/rooms/bathroom.webp',
+  alt: 'Salle de bain privée — Hotel El Andariego Otavalo',
+};
 
 const amenityIcons: Record<string, any> = {
   wifi: { icon: Wifi, label: 'WiFi gratuit' },
@@ -17,8 +23,130 @@ const amenityIcons: Record<string, any> = {
   balcony: { icon: Home, label: 'Balcon' },
 };
 
-export default function RoomPage({ params }: { params: { slug: string } }) {
-  const room = hotelData.rooms.find(r => r.slug === params.slug);
+// ── Sélecteur de dates en range (arrivée + départ en 2 clics) ───────────
+function RangePicker({
+  checkIn, checkOut, onChange,
+}: {
+  checkIn: Date | undefined;
+  checkOut: Date | undefined;
+  onChange: (from: Date | undefined, to: Date | undefined) => void;
+}) {
+  const [open, setOpen] = useState(false);
+
+  const selected =
+    checkIn && checkOut
+      ? { from: checkIn, to: checkOut }
+      : checkIn
+      ? { from: checkIn }
+      : undefined;
+
+  const handleSelect = (range: { from?: Date; to?: Date } | undefined) => {
+    if (!range) {
+      onChange(undefined, undefined);
+    } else {
+      onChange(range.from, range.to);
+      if (range.from && range.to) {
+        setOpen(false);
+      }
+    }
+  };
+
+  const label =
+    checkIn && checkOut
+      ? `${format(checkIn, 'd MMM', { locale: fr })} → ${format(checkOut, 'd MMM yyyy', { locale: fr })}`
+      : checkIn
+      ? `${format(checkIn, 'd MMM yyyy', { locale: fr })} — choisir départ`
+      : 'Sélectionner les dates';
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full flex items-center gap-3 px-4 py-3 text-left transition-colors"
+        style={{
+          background: 'var(--cream)',
+          border: `1px solid ${open ? 'var(--terracotta)' : 'var(--cream-dark)'}`,
+          borderRadius: '2px',
+          fontFamily: "'Crimson Pro', serif",
+          color: checkIn ? 'var(--warm-brown)' : 'var(--warm-brown-light)',
+          fontSize: '15px',
+        }}
+      >
+        <CalendarDays className="w-4 h-4 flex-shrink-0" style={{ color: 'var(--terracotta)' }} />
+        <span className="flex-1">{label}</span>
+        {(checkIn || checkOut) && (
+          <span
+            onClick={(e) => { e.stopPropagation(); onChange(undefined, undefined); }}
+            className="opacity-40 hover:opacity-100 transition-opacity"
+          >
+            <X className="w-3.5 h-3.5" />
+          </span>
+        )}
+      </button>
+
+      {open && (
+        <>
+          <div className="fixed inset-0 z-30" onClick={() => setOpen(false)} />
+          <div
+            className="absolute left-0 z-40 mt-1 shadow-2xl p-2"
+            style={{
+              background: 'white',
+              border: '1px solid var(--cream-dark)',
+              borderRadius: '2px',
+              borderTop: '3px solid var(--terracotta)',
+            }}
+          >
+            <div className="px-4 pt-3 pb-0 text-xs text-center"
+              style={{ color: 'var(--terracotta)', fontFamily: "'Crimson Pro', serif" }}>
+              {!checkIn
+                ? '① Cliquez sur votre date d\'arrivée'
+                : !checkOut
+                ? '② Cliquez sur votre date de départ'
+                : ''}
+            </div>
+            <Calendar
+              mode="range"
+              selected={selected}
+              onSelect={handleSelect}
+              disabled={{ before: new Date() }}
+              locale={fr}
+              showOutsideDays={false}
+              classNames={{
+                months: 'flex flex-col space-y-4',
+                month: 'space-y-4',
+                caption: 'flex justify-center pt-1 relative items-center',
+                caption_label: 'text-sm font-medium',
+                nav: 'space-x-1 flex items-center',
+                nav_button: 'h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-white transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-gray-200',
+                nav_button_previous: 'absolute left-1',
+                nav_button_next: 'absolute right-1',
+                table: 'w-full border-collapse space-y-1',
+                head_row: 'flex',
+                head_cell: 'text-gray-500 rounded-md w-9 font-normal text-[0.8rem] dark:text-gray-400',
+                row: 'flex w-full mt-2',
+                cell: 'h-9 w-9 text-center text-sm p-0 relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-amber-50 [&:has([aria-selected])]:bg-amber-50 first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20',
+                day: 'h-9 w-9 p-0 font-normal aria-selected:opacity-100 inline-flex items-center justify-center rounded-md text-sm ring-offset-white transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+                day_range_end: 'day-range-end',
+                day_selected: 'bg-amber-600 text-white hover:bg-amber-600 hover:text-white focus:bg-amber-600 focus:text-white',
+                day_today: 'bg-amber-50 text-amber-900',
+                day_outside: 'day-outside text-gray-400 opacity-50 aria-selected:bg-amber-50 aria-selected:text-gray-400 aria-selected:opacity-30',
+                day_disabled: 'text-gray-400 opacity-50',
+                day_range_middle: 'aria-selected:bg-amber-100 aria-selected:text-amber-900',
+                day_hidden: 'invisible',
+              }}
+            />
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+// ── Page principale ───────────────────────────────────────────────────────
+export default function RoomPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  const room = hotelData.rooms.find(r => r.slug === slug);
+
   const [checkIn, setCheckIn] = useState<Date | undefined>();
   const [checkOut, setCheckOut] = useState<Date | undefined>();
   const [guests, setGuests] = useState(1);
@@ -41,10 +169,16 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
     );
   }
 
+  // Images de la chambre + salle de bain en dernier
+  const allImages = [...room.images, BATHROOM_IMAGE];
+
+  const nights = checkIn && checkOut
+    ? Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24))
+    : 0;
+
   const generateWhatsAppMessage = () => {
     let message = `Bonjour! Je souhaite réserver une ${room.type}`;
     if (checkIn && checkOut) {
-      const nights = Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24));
       const total = nights * room.price;
       message += `\n\nDates:\n• Arrivée: ${format(checkIn, 'PPP', { locale: fr })}\n• Départ: ${format(checkOut, 'PPP', { locale: fr })}\n• Durée: ${nights} nuit${nights > 1 ? 's' : ''}`;
       message += `\n\nNombre de personnes: ${guests}`;
@@ -54,12 +188,6 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
     }
     return message;
   };
-
-  const nights = checkIn && checkOut
-    ? Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24))
-    : 0;
-
-  const minCheckOut = checkIn ? addDays(checkIn, 1) : addDays(new Date(), 1);
 
   return (
     <main className="min-h-screen" style={{ backgroundColor: 'var(--cream)', color: 'var(--warm-brown)' }}>
@@ -71,7 +199,6 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
       }} />
 
       <div className="max-w-7xl mx-auto px-4 py-10">
-        {/* Back link */}
         <Link href="/#chambres">
           <button
             className="flex items-center gap-2 mb-10 text-sm uppercase tracking-wider transition-opacity hover:opacity-70"
@@ -83,40 +210,38 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
         </Link>
 
         <div className="grid lg:grid-cols-3 gap-10">
-          {/* Left: images + info */}
+          {/* Colonne gauche : images + infos */}
           <div className="lg:col-span-2">
-            {/* Main image */}
+            {/* Image principale */}
             <div className="relative h-[400px] md:h-[520px] overflow-hidden mb-4 shadow-2xl" style={{ borderRadius: '2px' }}>
               <Image
-                src={room.images[currentImage].src}
-                alt={room.images[currentImage].alt}
+                src={allImages[currentImage].src}
+                alt={allImages[currentImage].alt}
                 fill
                 className="object-cover"
                 priority
               />
-              {/* Textile stripe top */}
               <div className="absolute top-0 left-0 right-0 h-1.5" style={{
                 background: 'repeating-linear-gradient(90deg, #C4551A 0, #C4551A 12px, #D4892A 12px, #D4892A 24px, #2A7B6F 24px, #2A7B6F 36px, #D4892A 36px, #D4892A 48px)'
               }} />
-              {/* Price badge */}
-              <div
-                className="absolute bottom-5 right-5 px-5 py-2"
-                style={{
-                  background: 'var(--terracotta)',
-                  color: 'white',
-                  fontFamily: "'Playfair Display', serif",
-                  fontWeight: '700',
-                  fontSize: '20px',
-                  boxShadow: '0 4px 16px rgba(0,0,0,0.3)',
-                }}
-              >
+              {/* Badge salle de bain */}
+              {currentImage === allImages.length - 1 && (
+                <div className="absolute top-5 left-5 flex items-center gap-1.5 px-3 py-1.5"
+                  style={{ background: 'rgba(42,123,111,0.92)', color: 'white', borderRadius: '2px', fontSize: '12px', fontFamily: "'Crimson Pro', serif", letterSpacing: '0.05em' }}>
+                  <ShowerHead className="w-3.5 h-3.5" />
+                  Salle de bain privée
+                </div>
+              )}
+              {/* Prix */}
+              <div className="absolute bottom-5 right-5 px-5 py-2"
+                style={{ background: 'var(--terracotta)', color: 'white', fontFamily: "'Playfair Display', serif", fontWeight: '700', fontSize: '20px', boxShadow: '0 4px 16px rgba(0,0,0,0.3)' }}>
                 ${room.price}<span className="text-sm font-normal opacity-80">/nuit</span>
               </div>
             </div>
 
-            {/* Thumbnail strip */}
-            <div className="flex gap-3 mb-10">
-              {room.images.map((image, index) => (
+            {/* Miniatures */}
+            <div className="flex gap-3 mb-10 flex-wrap">
+              {allImages.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
@@ -128,44 +253,38 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
                   }}
                 >
                   <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                  {index === allImages.length - 1 && (
+                    <div className="absolute inset-0 flex items-end justify-center pb-1">
+                      <span className="text-white text-[9px] px-1.5 py-0.5"
+                        style={{ background: 'rgba(42,123,111,0.85)', fontFamily: "'Crimson Pro', serif", borderRadius: '1px' }}>
+                        Salle de bain
+                      </span>
+                    </div>
+                  )}
                 </button>
               ))}
             </div>
 
-            {/* Room description card */}
-            <div className="p-8 mb-8" style={{
-              background: 'white',
-              boxShadow: '0 2px 20px rgba(61,43,31,0.08)',
-              borderRadius: '2px',
-              borderTop: '4px solid var(--terracotta)'
-            }}>
+            {/* Carte description */}
+            <div className="p-8 mb-8" style={{ background: 'white', boxShadow: '0 2px 20px rgba(61,43,31,0.08)', borderRadius: '2px', borderTop: '4px solid var(--terracotta)' }}>
               <div className="flex items-center gap-3 mb-2">
                 <span className="w-6 h-0.5" style={{ background: 'var(--terracotta)' }} />
                 <span className="text-xs uppercase tracking-[0.3em]" style={{ color: 'var(--terracotta)', fontFamily: "'Crimson Pro', serif" }}>
                   Hotel El Andariego · Otavalo
                 </span>
               </div>
-
-              <h1 className="text-4xl font-bold mb-4"
-                style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
+              <h1 className="text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
                 {room.type}
               </h1>
-
-              <div className="flex items-center gap-2 mb-6 text-sm"
-                style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}>
+              <div className="flex items-center gap-2 mb-6 text-sm" style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}>
                 <Users className="w-4 h-4" />
                 <span>Jusqu'à {room.capacity} personne{room.capacity > 1 ? 's' : ''}</span>
               </div>
-
-              <p className="text-lg leading-relaxed mb-8"
-                style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
+              <p className="text-lg leading-relaxed mb-8" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
                 {room.description}
               </p>
-
-              {/* Amenities */}
               <div style={{ borderTop: '1px solid var(--cream-dark)', paddingTop: '2rem' }}>
-                <h2 className="text-2xl font-semibold mb-6"
-                  style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
+                <h2 className="text-2xl font-semibold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
                   Équipements inclus
                 </h2>
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -175,13 +294,10 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
                     const Icon = info.icon;
                     return (
                       <div key={amenity} className="flex items-center gap-3">
-                        <div className="w-10 h-10 flex items-center justify-center flex-shrink-0"
-                          style={{ background: 'rgba(196,85,26,0.1)', borderRadius: '2px' }}>
+                        <div className="w-10 h-10 flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(196,85,26,0.1)', borderRadius: '2px' }}>
                           <Icon className="w-5 h-5" style={{ color: 'var(--terracotta)' }} />
                         </div>
-                        <span style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-                          {info.label}
-                        </span>
+                        <span style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>{info.label}</span>
                       </div>
                     );
                   })}
@@ -189,15 +305,9 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
               </div>
             </div>
 
-            {/* Policies card */}
-            <div className="p-8" style={{
-              background: 'white',
-              boxShadow: '0 2px 20px rgba(61,43,31,0.08)',
-              borderRadius: '2px',
-              borderTop: '4px solid var(--teal)'
-            }}>
-              <h2 className="text-2xl font-semibold mb-5"
-                style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
+            {/* Carte politique */}
+            <div className="p-8" style={{ background: 'white', boxShadow: '0 2px 20px rgba(61,43,31,0.08)', borderRadius: '2px', borderTop: '4px solid var(--teal)' }}>
+              <h2 className="text-2xl font-semibold mb-5" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
                 Informations importantes
               </h2>
               <div className="space-y-3">
@@ -209,94 +319,69 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: 'var(--teal)' }} />
-                    <span style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-                      {item}
-                    </span>
+                    <span style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>{item}</span>
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Right: booking widget */}
+          {/* Colonne droite : réservation */}
           <div className="lg:col-span-1">
-            <div className="sticky top-8 p-7 shadow-2xl"
-              style={{
-                background: 'white',
-                borderRadius: '2px',
-                borderTop: '4px solid var(--terracotta)',
-              }}>
-              <h3 className="text-2xl font-bold mb-6"
-                style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
+            <div className="sticky top-8 p-7 shadow-2xl" style={{ background: 'white', borderRadius: '2px', borderTop: '4px solid var(--terracotta)' }}>
+              <h3 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
                 Réserver cette chambre
               </h3>
 
               <div className="space-y-4 mb-6">
+                {/* Sélecteur de dates unique */}
                 <div>
-                  <label className="block text-sm font-medium mb-2"
-                    style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-                    Date d'arrivée
+                  <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
+                    Dates de séjour
                   </label>
-                  <DatePicker
-                    date={checkIn}
-                    onDateChange={setCheckIn}
-                    placeholder="Sélectionner la date"
-                    minDate={new Date()}
+                  <RangePicker
+                    checkIn={checkIn}
+                    checkOut={checkOut}
+                    onChange={(from, to) => { setCheckIn(from); setCheckOut(to); }}
                   />
+                  <div className="mt-1.5 text-xs" style={{ fontFamily: "'Crimson Pro', serif", minHeight: '18px' }}>
+                    {checkIn && !checkOut && (
+                      <span style={{ color: 'var(--terracotta)' }}>→ Cliquez maintenant sur la date de départ</span>
+                    )}
+                    {checkIn && checkOut && nights > 0 && (
+                      <span style={{ color: 'var(--teal)' }}>✓ {nights} nuit{nights > 1 ? 's' : ''} sélectionnée{nights > 1 ? 's' : ''}</span>
+                    )}
+                  </div>
                 </div>
 
+                {/* Nombre de personnes */}
                 <div>
-                  <label className="block text-sm font-medium mb-2"
-                    style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-                    Date de départ
-                  </label>
-                  <DatePicker
-                    date={checkOut}
-                    onDateChange={setCheckOut}
-                    placeholder="Sélectionner la date"
-                    minDate={minCheckOut}
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium mb-2"
-                    style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
+                  <label className="block text-sm font-medium mb-2" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
                     Nombre de personnes
                   </label>
                   <select
                     value={guests}
                     onChange={(e) => setGuests(Number(e.target.value))}
-                    className="w-full px-4 py-2.5 border focus:outline-none transition-colors"
-                    style={{
-                      borderColor: 'var(--cream-dark)',
-                      borderRadius: '2px',
-                      fontFamily: "'Crimson Pro', serif",
-                      color: 'var(--warm-brown)',
-                      background: 'var(--cream)',
-                    }}
+                    className="w-full px-4 py-2.5 border focus:outline-none"
+                    style={{ borderColor: 'var(--cream-dark)', borderRadius: '2px', fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown)', background: 'var(--cream)' }}
                   >
                     {Array.from({ length: room.capacity }, (_, i) => i + 1).map((n) => (
-                      <option key={n} value={n}>
-                        {n} personne{n > 1 ? 's' : ''}
-                      </option>
+                      <option key={n} value={n}>{n} personne{n > 1 ? 's' : ''}</option>
                     ))}
                   </select>
                 </div>
               </div>
 
-              {/* Price summary */}
+              {/* Récap prix */}
               {checkIn && checkOut && nights > 0 && (
                 <div className="mb-6 p-4" style={{ background: 'var(--cream)', borderRadius: '2px' }}>
-                  <div className="flex justify-between mb-2 text-sm"
-                    style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
+                  <div className="flex justify-between mb-2 text-sm" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
                     <span>${room.price} × {nights} nuit{nights > 1 ? 's' : ''}</span>
                     <span>${room.price * nights}</span>
                   </div>
                   <div className="h-px my-2" style={{ background: 'var(--cream-dark)' }} />
                   <div className="flex justify-between">
-                    <span className="font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-                      Total
-                    </span>
+                    <span className="font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>Total</span>
                     <span className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--terracotta)' }}>
                       ${room.price * nights}
                     </span>
@@ -304,12 +389,7 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
                 </div>
               )}
 
-              <WhatsAppButton
-                message={generateWhatsAppMessage()}
-                size="lg"
-                className="w-full mb-3"
-              />
-
+              <WhatsAppButton message={generateWhatsAppMessage()} size="lg" className="w-full mb-3" />
               <p className="text-xs text-center" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
                 Réservation instantanée via WhatsApp
               </p>
@@ -317,12 +397,11 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
           </div>
         </div>
 
-        {/* Other rooms */}
+        {/* Autres chambres */}
         <div className="mt-20">
           <div className="flex items-center gap-4 mb-10">
             <div className="h-px flex-1" style={{ background: 'var(--cream-dark)' }} />
-            <h2 className="text-3xl font-bold"
-              style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
+            <h2 className="text-3xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
               Autres chambres
             </h2>
             <div className="h-px flex-1" style={{ background: 'var(--cream-dark)' }} />
@@ -333,16 +412,12 @@ export default function RoomPage({ params }: { params: { slug: string } }) {
               .slice(0, 3)
               .map((otherRoom) => (
                 <Link key={otherRoom.id} href={`/chambres/${otherRoom.slug}`}>
-                  <div
-                    className="card-lift overflow-hidden cursor-pointer"
-                    style={{ background: 'white', borderRadius: '2px', boxShadow: '0 2px 12px rgba(61,43,31,0.08)' }}
-                  >
+                  <div className="card-lift overflow-hidden cursor-pointer" style={{ background: 'white', borderRadius: '2px', boxShadow: '0 2px 12px rgba(61,43,31,0.08)' }}>
                     <div className="relative h-48 img-zoom">
                       <Image src={otherRoom.images[0].src} alt={otherRoom.images[0].alt} fill className="object-cover" />
                     </div>
                     <div className="p-4">
-                      <h3 className="font-semibold text-lg mb-1"
-                        style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
+                      <h3 className="font-semibold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
                         {otherRoom.type}
                       </h3>
                       <p className="font-bold" style={{ color: 'var(--terracotta)', fontFamily: "'Playfair Display', serif" }}>
