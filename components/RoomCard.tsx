@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Users, Wifi, Tv, ShowerHead, Home } from 'lucide-react';
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
+
+interface RoomImage {
+  src: string;
+  alt: string;
+}
 
 interface RoomCardProps {
   room: {
@@ -16,7 +18,7 @@ interface RoomCardProps {
     description: string;
     price: number;
     amenities: string[];
-    images: string[];
+    images: RoomImage[];
   };
 }
 
@@ -27,56 +29,114 @@ const amenityIcons: Record<string, any> = {
   balcony: Home,
 };
 
+const amenityLabels: Record<string, string> = {
+  wifi: 'WiFi',
+  tv: 'TV',
+  shower: 'Salle de bain',
+  balcony: 'Balcon',
+};
+
 export function RoomCard({ room }: RoomCardProps) {
   return (
-    <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
-      <CardHeader className="p-0 relative h-64 overflow-hidden">
+    <div
+      className="card-lift overflow-hidden"
+      style={{
+        background: 'var(--cream)',
+        borderRadius: '2px',
+        boxShadow: '0 2px 16px rgba(61,43,31,0.10)',
+      }}
+    >
+      {/* Image */}
+      <div className="relative h-56 overflow-hidden img-zoom">
         <Image
-          src={room.images[0]}
-          alt={room.type}
+          src={room.images[0].src}
+          alt={room.images[0].alt}
           fill
-          className="object-cover group-hover:scale-110 transition-transform duration-500"
+          className="object-cover"
         />
-        <Badge className="absolute top-4 right-4 bg-orange-600 text-white border-none">
-          ${room.price}/nuit
-        </Badge>
-      </CardHeader>
+        {/* Price tag */}
+        <div
+          className="absolute top-4 left-0 px-4 py-1.5"
+          style={{
+            background: 'var(--terracotta)',
+            color: 'white',
+            fontFamily: "'Playfair Display', serif",
+            fontWeight: '600',
+            fontSize: '15px',
+            boxShadow: '2px 2px 8px rgba(0,0,0,0.2)',
+          }}
+        >
+          ${room.price}<span className="text-xs font-normal opacity-80">/nuit</span>
+        </div>
+        {/* Textile top stripe */}
+        <div className="absolute top-0 left-0 right-0 h-1" style={{
+          background: 'repeating-linear-gradient(90deg, #C4551A 0, #C4551A 8px, #D4892A 8px, #D4892A 16px, #2A7B6F 16px, #2A7B6F 24px, #D4892A 24px, #D4892A 32px)'
+        }} />
+      </div>
 
-      <CardContent className="p-6">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-xl font-semibold text-gray-900">{room.type}</h3>
-          <div className="flex items-center text-gray-600">
-            <Users className="w-4 h-4 mr-1" />
-            <span className="text-sm">{room.capacity} pers.</span>
+      {/* Content */}
+      <div className="p-6">
+        <div className="flex items-start justify-between mb-2">
+          <h3
+            className="text-xl font-bold leading-tight"
+            style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
+          >
+            {room.type}
+          </h3>
+          <div
+            className="flex items-center gap-1 text-sm ml-3 flex-shrink-0"
+            style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}
+          >
+            <Users className="w-4 h-4" />
+            <span>{room.capacity} pers.</span>
           </div>
         </div>
 
-        <p className="text-gray-600 mb-4 text-sm line-clamp-2">
+        <p
+          className="text-sm mb-5 leading-relaxed line-clamp-2"
+          style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
+        >
           {room.description}
         </p>
 
-        <div className="flex gap-2 mb-4">
+        {/* Amenities */}
+        <div className="flex flex-wrap gap-2 mb-6">
           {room.amenities.map((amenity) => {
             const Icon = amenityIcons[amenity];
             return Icon ? (
               <div
                 key={amenity}
-                className="w-8 h-8 bg-orange-50 rounded-full flex items-center justify-center"
+                className="flex items-center gap-1.5 px-2.5 py-1 text-xs"
+                style={{
+                  background: 'rgba(196,85,26,0.08)',
+                  color: 'var(--terracotta)',
+                  borderRadius: '2px',
+                  fontFamily: "'Crimson Pro', serif",
+                }}
               >
-                <Icon className="w-4 h-4 text-orange-600" />
+                <Icon className="w-3.5 h-3.5" />
+                <span>{amenityLabels[amenity]}</span>
               </div>
             ) : null;
           })}
         </div>
-      </CardContent>
 
-      <CardFooter className="p-6 pt-0">
-        <Link href={`/chambres/${room.slug}`} className="w-full">
-          <Button className="w-full bg-orange-600 hover:bg-orange-700">
-            Voir les détails
-          </Button>
+        {/* CTA */}
+        <Link href={`/chambres/${room.slug}`}>
+          <button
+            className="w-full py-3 font-semibold tracking-wide transition-all duration-300 hover:opacity-90 text-sm"
+            style={{
+              background: 'var(--warm-brown)',
+              color: 'var(--cream)',
+              borderRadius: '2px',
+              fontFamily: "'Playfair Display', serif",
+              letterSpacing: '0.05em',
+            }}
+          >
+            Voir les détails →
+          </button>
         </Link>
-      </CardFooter>
-    </Card>
+      </div>
+    </div>
   );
 }

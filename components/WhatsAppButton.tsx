@@ -1,7 +1,6 @@
 'use client';
 
 import { MessageCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 interface WhatsAppButtonProps {
   message: string;
@@ -29,7 +28,12 @@ export function WhatsAppButton({
     return (
       <button
         onClick={handleClick}
-        className={`fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110 ${className}`}
+        className="wa-pulse fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 text-white transition-all duration-300 hover:scale-110"
+        style={{
+          background: '#25D366',
+          borderRadius: '50%',
+          boxShadow: '0 4px 20px rgba(37, 211, 102, 0.35)',
+        }}
         aria-label="Contacter via WhatsApp"
       >
         <MessageCircle className="w-8 h-8" />
@@ -37,14 +41,29 @@ export function WhatsAppButton({
     );
   }
 
+  const paddingMap = {
+    default: '10px 20px',
+    sm: '7px 14px',
+    lg: '14px 28px',
+    icon: '10px',
+  };
+
   return (
-    <Button
+    <button
       onClick={handleClick}
-      size={size}
-      className={`bg-green-500 hover:bg-green-600 text-white ${className}`}
+      className={`inline-flex items-center justify-center font-semibold tracking-wide transition-all duration-300 hover:opacity-90 hover:scale-[1.02] ${className}`}
+      style={{
+        background: '#25D366',
+        color: 'white',
+        borderRadius: '2px',
+        padding: paddingMap[size] || paddingMap.default,
+        fontFamily: "'Playfair Display', serif",
+        fontSize: size === 'lg' ? '16px' : '14px',
+        boxShadow: '0 2px 12px rgba(37, 211, 102, 0.25)',
+      }}
     >
-      <MessageCircle className="w-5 h-5 mr-2" />
+      <MessageCircle className="w-5 h-5 mr-2 flex-shrink-0" />
       Réserver via WhatsApp
-    </Button>
+    </button>
   );
 }

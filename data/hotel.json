@@ -67,10 +67,10 @@
       "description": "Transferts depuis/vers le terminal"
     },
     {
-      "id": "cleaning",
-      "name": "Service de ménage",
-      "icon": "Sparkles",
-      "description": "Ménage quotidien de votre chambre"
+      "id": "kitchen",
+      "name": "Cuisine équipée partagée",
+      "icon": "UtensilsCrossed",
+      "description": "Cuisine complète à disposition des clients"
     },
     {
       "id": "restaurant",
@@ -108,17 +108,23 @@
   },
   "rooms": [
     {
-      "id": "matrimonial",
-      "type": "Chambre Matrimoniale",
-      "slug": "matrimonial",
-      "quantity": 7,
-      "capacity": 2,
-      "description": "Chambre confortable avec lit matrimonial, idéale pour les couples. Décoration chaleureuse aux couleurs de l'Équateur.",
-      "price": 45,
-      "amenities": ["wifi", "tv", "shower", "balcony"],
+      "id": "single",
+      "type": "Chambre Simple",
+      "slug": "simple",
+      "quantity": 2,
+      "capacity": 1,
+      "description": "Chambre confortable et économique avec un lit simple, idéale pour les voyageurs solitaires.",
+      "price": 25,
+      "amenities": ["wifi", "tv", "shower"],
       "images": [
-        "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        {
+          "src": "/assets/rooms/single_room.webp",
+          "alt": "Chambre simple avec lit individuel à l'Hotel El Andariego Otavalo"
+        },
+        {
+          "src": "/assets/rooms/single_bed.webp",
+          "alt": "Lit simple confortable dans chambre single à Otavalo"
+        }
       ]
     },
     {
@@ -131,8 +137,34 @@
       "price": 42,
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
-        "https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        "https://images.pexels.com/photos/271639/pexels-photo-271639.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        {
+          "src": "/assets/rooms/double_room.webp",
+          "alt": "Chambre double avec deux lits simples à l'Hotel El Andariego"
+        },
+        {
+          "src": "/assets/common_area/double_room_tv.webp",
+          "alt": "Chambre double avec télévision à Otavalo Ecuador"
+        }
+      ]
+    },
+    {
+      "id": "matrimonial",
+      "type": "Chambre Matrimoniale",
+      "slug": "matrimonial",
+      "quantity": 7,
+      "capacity": 2,
+      "description": "Chambre confortable avec lit matrimonial, idéale pour les couples. Décoration chaleureuse aux couleurs de l'Équateur.",
+      "price": 45,
+      "amenities": ["wifi", "tv", "shower", "balcony"],
+      "images": [
+        {
+          "src": "/assets/rooms/matrimonial_room_balcony.webp",
+          "alt": "Chambre matrimoniale avec balcon à l'Hotel El Andariego Otavalo"
+        },
+        {
+          "src": "/assets/common_area/matrimonial_room.webp",
+          "alt": "Intérieur d'une chambre matrimoniale confortable à Otavalo"
+        }
       ]
     },
     {
@@ -145,22 +177,14 @@
       "price": 60,
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
-        "https://images.pexels.com/photos/1743231/pexels-photo-1743231.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1200"
-      ]
-    },
-    {
-      "id": "dormitorio",
-      "type": "Dortoir Partagé",
-      "slug": "dormitorio-compartido",
-      "quantity": 1,
-      "capacity": 8,
-      "description": "Dortoir convivial pour backpackers, avec lits superposés et casiers sécurisés. Parfait pour rencontrer d'autres voyageurs.",
-      "price": 15,
-      "amenities": ["wifi", "shower"],
-      "images": [
-        "https://images.pexels.com/photos/6969857/pexels-photo-6969857.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        "https://images.pexels.com/photos/7031406/pexels-photo-7031406.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        {
+          "src": "/assets/rooms/dormitory_view.webp",
+          "alt": "Chambre triple spacieuse avec bureau et sofa à Otavalo"
+        },
+        {
+          "src": "/assets/rooms/single_bed.webp",
+          "alt": "Lit individuel dans chambre triple à l'Hotel El Andariego"
+        }
       ]
     },
     {
@@ -173,15 +197,83 @@
       "price": 85,
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
-        "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg?auto=compress&cs=tinysrgb&w=1200",
-        "https://images.pexels.com/photos/1457847/pexels-photo-1457847.jpeg?auto=compress&cs=tinysrgb&w=1200"
+        {
+          "src": "/assets/rooms/dormitory_room.webp",
+          "alt": "Chambre quintuple familiale à l'Hotel El Andariego Otavalo"
+        },
+        {
+          "src": "/assets/rooms/entry_desk.webp",
+          "alt": "Espace de travail dans chambre familiale à Otavalo"
+        }
+      ]
+    },
+    {
+      "id": "dormitorio",
+      "type": "Dortoir Partagé",
+      "slug": "dormitorio-compartido",
+      "quantity": 1,
+      "capacity": 8,
+      "description": "Dortoir convivial pour backpackers, avec lits superposés et casiers sécurisés. Parfait pour rencontrer d'autres voyageurs.",
+      "price": 15,
+      "amenities": ["wifi", "shower"],
+      "images": [
+        {
+          "src": "/assets/rooms/dormitory_room.webp",
+          "alt": "Dortoir partagé avec lits superposés à l'Hotel El Andariego Otavalo"
+        },
+        {
+          "src": "/assets/rooms/dormitory_room.webp",
+          "alt": "Vue du dortoir backpacker à Otavalo Ecuador"
+        }
       ]
     }
   ],
   "gallery": [
-    "https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg?auto=compress&cs=tinysrgb&w=1200",
-    "https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=1200"
+    {
+      "src": "/assets/common_area/hotel_building.webp",
+      "alt": "Façade de l'Hotel El Andariego à Otavalo Ecuador"
+    },
+    {
+      "src": "/assets/common_area/common_space_with_sofa.webp",
+      "alt": "Espace commun confortable avec sofa à l'hotel Otavalo"
+    },
+    {
+      "src": "/assets/common_area/kitchen.webp",
+      "alt": "Cuisine équipée à disposition des clients à l'Hotel El Andariego"
+    },
+    {
+      "src": "/assets/common_area/sofa_table.webp",
+      "alt": "Salon convivial avec table à l'hotel Otavalo Ecuador"
+    }
+  ],
+  "hero": {
+    "image": {
+      "src": "/assets/common_area/hotel_building_view.webp",
+      "alt": "Vue panoramique de l'Hotel El Andariego à Otavalo dans les Andes équatoriennes"
+    }
+  },
+  "about": {
+    "image": {
+      "src": "/assets/common_area/entry_desk.webp",
+      "alt": "Bibliothèque et espace détente à l'Hotel El Andariego Otavalo"
+    }
+  },
+  "galleryStrip": [
+    {
+      "src": "/assets/common_area/common_space_with_sofa.webp",
+      "alt": "Bar et espace de restauration à l'hotel Otavalo"
+    },
+    {
+      "src": "/assets/common_area/colored_stairs.webp",
+      "alt": "Escalier coloré andin à l'Hotel El Andariego Otavalo"
+    },
+    {
+      "src": "/assets/common_area/bibliotheca_sofa.webp",
+      "alt": "Couloir et espaces communs de l'Hotel El Andariego"
+    },
+    {
+      "src": "/assets/common_area/kitchen.webp",
+      "alt": "Salle de bain privée dans les chambres de l'hotel Otavalo"
+    }
   ]
 }
