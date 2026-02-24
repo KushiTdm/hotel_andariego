@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { RoomCard } from '@/components/RoomCard';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { TestimonialsCarousel } from '@/components/TestimonialsCarousel';
 import hotelData from '@/data/hotel.json';
 
 const iconMap: Record<string, any> = {
@@ -333,6 +334,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── TESTIMONIALS ── */}
+      <TestimonialsCarousel />
 
       {/* ── GALLERY STRIP ── */}
       <section className="py-16 px-4" style={{ backgroundColor: 'var(--warm-brown)' }}>
