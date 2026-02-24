@@ -178,12 +178,8 @@
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
         {
-          "src": "/assets/rooms/dormitory_view.webp",
+          "src": "/assets/rooms/triple_room_tv.webp",
           "alt": "Chambre triple spacieuse avec bureau et sofa à Otavalo"
-        },
-        {
-          "src": "/assets/rooms/single_bed.webp",
-          "alt": "Lit individuel dans chambre triple à l'Hotel El Andariego"
         }
       ]
     },
