@@ -444,7 +444,8 @@ export default function Home() {
             {[
               {
                 name: 'Plaza de Ponchos',
-                emoji: '🧶',
+                image: '/assets/activities/plaza_de_ponchos.jpg',
+                imageAlt: 'Marché artisanal Plaza de Ponchos à Otavalo, Équateur',
                 description: "Le plus grand marché artisanal indigène d'Amérique latine",
                 walk: '2 min',
                 car: null,
@@ -453,7 +454,8 @@ export default function Home() {
               },
               {
                 name: 'Cascada de Peguche',
-                emoji: '💧',
+                image: '/assets/activities/cascada_de_peguche .jpg',
+                imageAlt: 'Cascada de Peguche, chute d\'eau sacrée kichwa près d\'Otavalo',
                 description: "Chute d'eau sacrée kichwa au cœur de la forêt andine",
                 walk: '45 min',
                 car: '10 min',
@@ -462,7 +464,8 @@ export default function Home() {
               },
               {
                 name: 'Lagunas de Mojanda',
-                emoji: '🏔️',
+                image: '/assets/activities/lagunas_de_mojanda .jpg',
+                imageAlt: 'Lagunas de Mojanda, lacs de cratère dans les Andes équatoriennes',
                 description: "Trois lacs de cratère à 3 700 m d'altitude, panorama exceptionnel",
                 walk: null,
                 car: '30 min',
@@ -471,7 +474,8 @@ export default function Home() {
               },
               {
                 name: 'Laguna de Cuicocha',
-                emoji: '🌋',
+                image: '/assets/activities/laguna_de_cuicocha.webp',
+                imageAlt: 'Laguna de Cuicocha, lac volcanique avec île centrale dans la caldeira du Cotacachi',
                 description: 'Lac volcanique dans la caldeira du Cotacachi, île centrale mythique',
                 walk: null,
                 car: '40 min',
@@ -480,7 +484,8 @@ export default function Home() {
               },
               {
                 name: 'Parque Cóndor',
-                emoji: '🦅',
+                image: '/assets/activities/parque_condor.jpg',
+                imageAlt: 'Parque Cóndor, centre de réhabilitation d\'oiseaux rapaces près d\'Otavalo',
                 description: "Centre de réhabilitation d'oiseaux rapaces avec vols en liberté",
                 walk: null,
                 car: '20 min',
@@ -506,11 +511,16 @@ export default function Home() {
                 }} />
 
                 <div className="p-7">
-                  {/* Emoji + name */}
+                  {/* Image + name */}
                   <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 flex items-center justify-center flex-shrink-0 text-2xl rounded-sm"
-                      style={{ background: `${place.color}18` }}>
-                      {place.emoji}
+                    <div className="w-14 h-14 flex-shrink-0 rounded-sm overflow-hidden" style={{ background: `${place.color}18` }}>
+                      <Image
+                        src={place.image}
+                        alt={place.imageAlt}
+                        width={56}
+                        height={56}
+                        className="object-cover w-full h-full"
+                      />
                     </div>
                     <div>
                       <h3 className="text-lg font-bold leading-tight"
