@@ -1,5 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
+import { LoadingScreen } from '@/components/LoadingScreen';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hotelelandariego.com'),
@@ -69,10 +70,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://hotelelandariego.com',
   },
-  verification: {
-    // Add Google Search Console verification if needed
-    // google: 'your-verification-code',
-  },
 };
 
 // JSON-LD structured data
@@ -139,7 +136,10 @@ export default function RootLayout({
         <meta name="geo.position" content="0.2344;-78.2628" />
         <meta name="ICBM" content="0.2344, -78.2628" />
       </head>
-      <body>{children}</body>
+      <body>
+        <LoadingScreen />
+        {children}
+      </body>
     </html>
   );
 }
