@@ -9,6 +9,7 @@ import { Rooms } from '@/components/Rooms';
 import { Services } from '@/components/Services';
 import { GalleryStrip } from '@/components/GalleryStrip';
 import { Activities } from '@/components/Activities';
+import { Transport } from '@/components/Transport';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
 
@@ -39,6 +40,8 @@ export default function Home() {
       <GalleryStrip />
 
       <Activities />
+
+      <Transport />
 
       <Contact whatsappMessage={whatsappMessage} />
 

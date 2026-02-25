@@ -54,11 +54,21 @@ const activities = [
     color: 'var(--warm-brown)',
     highlight: false,
   },
+  {
+    name: 'Mirador Lago San Pablo',
+    image: '/assets/activities/mirador_lago_san_pablo.webp',
+    imageAlt: 'Mirador del Lago San Pablo, vista panorámica del lago sagrado de Otavalo',
+    description: 'Vista panorámica espectacular del lago sagrado al pie del Imbabura',
+    walk: null,
+    car: '15 min',
+    color: 'var(--teal)',
+    highlight: false,
+  },
 ];
 
 export function Activities() {
   return (
-    <section id="activites" className="py-24 px-4 andean-pattern" style={{ backgroundColor: 'var(--cream)' }}>
+    <section id="activites" className="py-24 px-4" style={{ backgroundColor: 'var(--cream)' }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Qué explorar desde el hotel"
