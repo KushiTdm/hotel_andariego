@@ -16,7 +16,6 @@ interface RoomCardProps {
     slug: string;
     capacity: number;
     description: string;
-    price: number;
     amenities: string[];
     images: RoomImage[];
   };
@@ -54,20 +53,6 @@ export function RoomCard({ room }: RoomCardProps) {
           fill
           className="object-cover"
         />
-        {/* Price tag */}
-        <div
-          className="absolute top-4 left-0 px-4 py-1.5"
-          style={{
-            background: 'var(--terracotta)',
-            color: 'white',
-            fontFamily: "'Playfair Display', serif",
-            fontWeight: '600',
-            fontSize: '15px',
-            boxShadow: '2px 2px 8px rgba(0,0,0,0.2)',
-          }}
-        >
-          ${room.price}<span className="text-xs font-normal opacity-80">/nuit</span>
-        </div>
         {/* Textile top stripe */}
         <div className="absolute top-0 left-0 right-0 h-1" style={{
           background: 'repeating-linear-gradient(90deg, #C4551A 0, #C4551A 8px, #D4892A 8px, #D4892A 16px, #2A7B6F 16px, #2A7B6F 24px, #D4892A 24px, #D4892A 32px)'

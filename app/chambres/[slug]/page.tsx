@@ -179,10 +179,8 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
   const generateWhatsAppMessage = () => {
     let message = `Bonjour! Je souhaite réserver une ${room.type}`;
     if (checkIn && checkOut) {
-      const total = nights * room.price;
       message += `\n\nDates:\n• Arrivée: ${format(checkIn, 'PPP', { locale: fr })}\n• Départ: ${format(checkOut, 'PPP', { locale: fr })}\n• Durée: ${nights} nuit${nights > 1 ? 's' : ''}`;
       message += `\n\nNombre de personnes: ${guests}`;
-      message += `\n\nTotal estimé: $${total}`;
     } else {
       message += `\n\nNombre de personnes: ${guests}`;
     }
@@ -232,11 +230,6 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
                   Salle de bain privée
                 </div>
               )}
-              {/* Prix */}
-              <div className="absolute bottom-5 right-5 px-5 py-2"
-                style={{ background: 'var(--terracotta)', color: 'white', fontFamily: "'Playfair Display', serif", fontWeight: '700', fontSize: '20px', boxShadow: '0 4px 16px rgba(0,0,0,0.3)' }}>
-                ${room.price}<span className="text-sm font-normal opacity-80">/nuit</span>
-              </div>
             </div>
 
             {/* Miniatures */}
@@ -372,18 +365,13 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
                 </div>
               </div>
 
-              {/* Récap prix */}
+              {/* Récap durée */}
               {checkIn && checkOut && nights > 0 && (
                 <div className="mb-6 p-4" style={{ background: 'var(--cream)', borderRadius: '2px' }}>
-                  <div className="flex justify-between mb-2 text-sm" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-                    <span>${room.price} × {nights} nuit{nights > 1 ? 's' : ''}</span>
-                    <span>${room.price * nights}</span>
-                  </div>
-                  <div className="h-px my-2" style={{ background: 'var(--cream-dark)' }} />
                   <div className="flex justify-between">
-                    <span className="font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>Total</span>
-                    <span className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--terracotta)' }}>
-                      ${room.price * nights}
+                    <span className="font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>Durée du séjour</span>
+                    <span className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--terracotta)' }}>
+                      {nights} nuit{nights > 1 ? 's' : ''}
                     </span>
                   </div>
                 </div>
@@ -420,8 +408,8 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
                       <h3 className="font-semibold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
                         {otherRoom.type}
                       </h3>
-                      <p className="font-bold" style={{ color: 'var(--terracotta)', fontFamily: "'Playfair Display', serif" }}>
-                        ${otherRoom.price}/nuit
+                      <p className="text-sm" style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}>
+                        Jusqu'à {otherRoom.capacity} personne{otherRoom.capacity > 1 ? 's' : ''}
                       </p>
                     </div>
                   </div>

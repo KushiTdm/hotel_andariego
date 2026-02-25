@@ -114,7 +114,6 @@
       "quantity": 2,
       "capacity": 1,
       "description": "Chambre confortable et économique avec un lit simple, idéale pour les voyageurs solitaires.",
-      "price": 25,
       "amenities": ["wifi", "tv", "shower"],
       "images": [
         {
@@ -134,16 +133,11 @@
       "quantity": 3,
       "capacity": 2,
       "description": "Chambre spacieuse avec deux lits individuels, parfaite pour les amis ou la famille.",
-      "price": 42,
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
         {
           "src": "/assets/rooms/double_room.webp",
           "alt": "Chambre double avec deux lits simples à l'Hotel El Andariego"
-        },
-        {
-          "src": "/assets/common_area/double_room_tv.webp",
-          "alt": "Chambre double avec télévision à Otavalo Ecuador"
         }
       ]
     },
@@ -154,16 +148,11 @@
       "quantity": 7,
       "capacity": 2,
       "description": "Chambre confortable avec lit matrimonial, idéale pour les couples. Décoration chaleureuse aux couleurs de l'Équateur.",
-      "price": 45,
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
         {
           "src": "/assets/rooms/matrimonial_room_balcony.webp",
           "alt": "Chambre matrimoniale avec balcon à l'Hotel El Andariego Otavalo"
-        },
-        {
-          "src": "/assets/common_area/matrimonial_room.webp",
-          "alt": "Intérieur d'une chambre matrimoniale confortable à Otavalo"
         }
       ]
     },
@@ -174,7 +163,6 @@
       "quantity": 1,
       "capacity": 3,
       "description": "Grande chambre pouvant accueillir jusqu'à 3 personnes, idéale pour les petites familles.",
-      "price": 60,
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
         {
@@ -190,16 +178,11 @@
       "quantity": 1,
       "capacity": 5,
       "description": "Notre plus grande chambre, parfaite pour les familles nombreuses ou les groupes d'amis.",
-      "price": 85,
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
         {
           "src": "/assets/rooms/dormitory_room.webp",
           "alt": "Chambre quintuple familiale à l'Hotel El Andariego Otavalo"
-        },
-        {
-          "src": "/assets/rooms/entry_desk.webp",
-          "alt": "Espace de travail dans chambre familiale à Otavalo"
         }
       ]
     },
@@ -210,16 +193,11 @@
       "quantity": 1,
       "capacity": 8,
       "description": "Dortoir convivial pour backpackers, avec lits superposés et casiers sécurisés. Parfait pour rencontrer d'autres voyageurs.",
-      "price": 15,
       "amenities": ["wifi", "shower"],
       "images": [
         {
-          "src": "/assets/rooms/dormitory_room.webp",
+          "src": "/assets/rooms/dormitory_view.webp",
           "alt": "Dortoir partagé avec lits superposés à l'Hotel El Andariego Otavalo"
-        },
-        {
-          "src": "/assets/rooms/dormitory_room.webp",
-          "alt": "Vue du dortoir backpacker à Otavalo Ecuador"
         }
       ]
     }
