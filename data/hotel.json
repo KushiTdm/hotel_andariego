@@ -50,9 +50,9 @@
   "services": [
     {
       "id": "breakfast",
-      "name": "Desayuno incluido",
+      "name": "Desayuno",
       "icon": "Coffee",
-      "description": "Desayuno continental cada mañana"
+      "description": "Delicioso desayuno cada mañana"
     },
     {
       "id": "reception",
@@ -64,7 +64,7 @@
       "id": "shuttle",
       "name": "Servicio de transporte",
       "icon": "Bus",
-      "description": "Trasladados desde/hacia el terminal"
+      "description": "Transporte hacia y desde el aeropuerto"
     },
     {
       "id": "kitchen",
@@ -133,7 +133,7 @@
       "quantity": 3,
       "capacity": 2,
       "description": "Habitación espaciosa con dos camas individuales, perfecta para amigos o familia.",
-      "amenities": ["wifi", "tv", "shower", "balcony"],
+      "amenities": ["wifi", "tv", "shower"],
       "images": [
         {
           "src": "/assets/rooms/double_room.webp",
@@ -163,7 +163,7 @@
       "quantity": 1,
       "capacity": 3,
       "description": "Amplia habitación que puede alojar hasta 3 personas, ideal para familias pequeñas.",
-      "amenities": ["wifi", "tv", "shower", "balcony"],
+      "amenities": ["wifi", "tv", "shower"],
       "images": [
         {
           "src": "/assets/rooms/triple_room_tv.webp",
@@ -178,7 +178,7 @@
       "quantity": 1,
       "capacity": 5,
       "description": "Nuestra habitación más grande, perfecta para familias numerosas o grupos de amigos.",
-      "amenities": ["wifi", "tv", "shower", "balcony"],
+      "amenities": ["wifi", "tv", "shower"],
       "images": [
         {
           "src": "/assets/rooms/dormitory_room.webp",
@@ -234,12 +234,12 @@
   },
   "galleryStrip": [
     {
-      "src": "/assets/common_area/common_space_with_sofa.webp",
-      "alt": "Bar y espacio de restaurante en el hotel Otavalo"
-    },
-    {
       "src": "/assets/common_area/colored_stairs.webp",
       "alt": "Escalera colorida andina en el Hotel El Andariego Otavalo"
+    },
+    {
+      "src": "/assets/common_area/common_space_with_sofa.webp",
+      "alt": "Bar y espacio de restaurante en el hotel Otavalo"
     },
     {
       "src": "/assets/common_area/bibliotheca_sofa.webp",
@@ -249,5 +249,6 @@
       "src": "/assets/common_area/kitchen.webp",
       "alt": "Baño privado en las habitaciones del hotel Otavalo"
     }
+    
   ]
 }

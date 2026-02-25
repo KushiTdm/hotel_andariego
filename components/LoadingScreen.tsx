@@ -77,7 +77,7 @@ export function LoadingScreen() {
 
         {/* Sous-titre lieu */}
         <p className="loading-location" style={{ animationDelay: '0.2s' }}>
-          Otavalo · Ecuador · Andes
+          Otavalo · Ecuador
         </p>
 
         {/* Logo */}

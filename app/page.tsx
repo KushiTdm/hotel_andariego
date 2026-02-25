@@ -90,7 +90,7 @@ export default function Home() {
           <div className="flex items-center justify-center gap-4 mb-6 fade-in-up delay-1">
             <div className="h-px w-16 opacity-60" style={{ background: 'var(--ochre)' }} />
             <span className="text-sm tracking-[0.35em] uppercase opacity-80" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--ochre-light)' }}>
-              Otavalo · Ecuador · Andes
+              Otavalo · Ecuador
             </span>
             <div className="h-px w-16 opacity-60" style={{ background: 'var(--ochre)' }} />
           </div>
@@ -250,7 +250,7 @@ export default function Home() {
                 Situado en el corazón de Otavalo, capital artesanal de los Andes, nuestro hotel es el punto de partida ideal para explorar el famoso mercado kichwa, las lagunas andinas y las comunidades indígenas con tradiciones milenarias.
               </p>
               <p className="text-lg mb-8 leading-relaxed" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-                Con {hotelData.info.rooms} habitaciones distribuidas en {hotelData.info.floors} pisos, recibimos hasta {hotelData.info.capacity} viajeros en un ambiente cálido que refleja el alma andina.
+                Con {hotelData.info.rooms} habitaciones distribuidas en tres pisos, recibimos hasta {hotelData.info.capacity} viajeros en un ambiente cálido que refleja el alma andina.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-10">
