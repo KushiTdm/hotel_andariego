@@ -12,8 +12,6 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { RoomCard } from '@/components/RoomCard';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
-import { LanguageSelector } from '@/components/LanguageSelector';
-import { useLanguage } from '@/lib/language-context';
 import hotelData from '@/data/hotel.json';
 
 const iconMap: Record<string, any> = {
@@ -23,7 +21,6 @@ const iconMap: Record<string, any> = {
 };
 
 export default function Home() {
-  const { t } = useLanguage();
   const whatsappMessage = `Bonjour! Je souhaite obtenir plus d'informations sur l'Hotel El Andariego à Otavalo.`;
   const [roomSlide, setRoomSlide] = useState(0);
   const roomsPerSlide = 3;
@@ -59,12 +56,14 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-4">
             <Link href="#chambres" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
-              {t('nav.rooms')}
+              Chambres
+            </Link>
+            <Link href="#activites" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
+              Activités
             </Link>
             <Link href="#contact" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity hidden sm:block" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
-              {t('nav.contact')}
+              Contact
             </Link>
-            <LanguageSelector />
           </div>
         </div>
       </nav>
@@ -417,7 +416,7 @@ export default function Home() {
       </section>
 
       {/* ── DISTANCES / ACTIVITÉS ── */}
-      <section className="py-24 px-4 andean-pattern" style={{ backgroundColor: 'var(--cream)' }}>
+      <section id="activites" className="py-24 px-4 andean-pattern" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
