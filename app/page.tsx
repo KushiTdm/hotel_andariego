@@ -495,65 +495,68 @@ export default function Home() {
             ].map((place) => (
               <div
                 key={place.name}
-                className="card-lift relative overflow-hidden"
+                className="card-lift relative overflow-hidden group"
                 style={{
-                  background: 'white',
                   borderRadius: '2px',
                   boxShadow: place.highlight
                     ? '0 4px 24px rgba(196,85,26,0.18)'
                     : '0 2px 12px rgba(61,43,31,0.08)',
-                  borderTop: `4px solid ${place.color}`,
                 }}
               >
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={place.image}
+                    alt={place.imageAlt}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                
+                {/* Dark overlay filter for readability */}
+                <div className="absolute inset-0" style={{
+                  background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%)'
+                }} />
+                
+                {/* Colored top border */}
+                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: place.color }} />
+                
                 {/* Woven band top */}
-                <div className="absolute top-0 left-0 right-0 h-0.5" style={{
+                <div className="absolute top-1 left-0 right-0 h-0.5" style={{
                   background: 'repeating-linear-gradient(90deg, var(--terracotta) 0, var(--terracotta) 8px, var(--ochre) 8px, var(--ochre) 16px, var(--teal) 16px, var(--teal) 24px, var(--ochre) 24px, var(--ochre) 32px)'
                 }} />
 
-                <div className="p-7">
-                  {/* Image + name */}
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="w-14 h-14 flex-shrink-0 rounded-sm overflow-hidden" style={{ background: `${place.color}18` }}>
-                      <Image
-                        src={place.image}
-                        alt={place.imageAlt}
-                        width={56}
-                        height={56}
-                        className="object-cover w-full h-full"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold leading-tight"
-                        style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-                        {place.name}
-                      </h3>
-                      <p className="text-sm mt-1 leading-relaxed"
-                        style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-                        {place.description}
-                      </p>
-                    </div>
-                  </div>
+                {/* Content */}
+                <div className="relative z-10 p-6 h-full min-h-[200px] flex flex-col justify-end text-white">
+                  <h3 className="text-xl font-bold leading-tight mb-2"
+                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                    {place.name}
+                  </h3>
+                  <p className="text-sm mb-4 leading-relaxed opacity-90"
+                    style={{ fontFamily: "'Crimson Pro', serif" }}>
+                    {place.description}
+                  </p>
 
                   {/* Distance badges */}
-                  <div className="flex flex-wrap gap-2 mt-4 pt-4" style={{ borderTop: '1px solid var(--cream-dark)' }}>
+                  <div className="flex flex-wrap gap-2">
                     {place.walk && (
                       <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm"
-                        style={{ background: 'var(--cream)', border: '1px solid var(--cream-dark)' }}>
+                        style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)' }}>
                         <span className="text-base">🚶</span>
-                        <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: place.color }}>
+                        <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
                           {place.walk}
                         </span>
-                        <span className="text-xs" style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}>à pied</span>
+                        <span className="text-xs opacity-80" style={{ fontFamily: "'Crimson Pro', serif" }}>à pied</span>
                       </div>
                     )}
                     {place.car && (
                       <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm"
-                        style={{ background: 'var(--cream)', border: '1px solid var(--cream-dark)' }}>
+                        style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)' }}>
                         <span className="text-base">🚗</span>
-                        <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: place.color }}>
+                        <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
                           {place.car}
                         </span>
-                        <span className="text-xs" style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}>en voiture</span>
+                        <span className="text-xs opacity-80" style={{ fontFamily: "'Crimson Pro', serif" }}>en voiture</span>
                       </div>
                     )}
                   </div>
