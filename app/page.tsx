@@ -33,6 +33,38 @@ export default function Home() {
     <main className="min-h-screen" style={{ backgroundColor: 'var(--cream)', color: 'var(--warm-brown)' }}>
       <WhatsAppButton message={whatsappMessage} variant="fixed" />
 
+      {/* ── NAVBAR ── */}
+      <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4" style={{ background: 'linear-gradient(to bottom, rgba(61,43,31,0.9), transparent)' }}>
+        <div className="max-w-7xl mx-auto flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full overflow-hidden" style={{ background: 'var(--cream)', boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
+              <Image
+                src="/assets/logo/logo_andariego.png"
+                alt="Hotel El Andariego Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="hidden sm:block">
+              <span className="text-lg md:text-xl font-bold block leading-tight" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--cream)' }}>
+                El Andariego
+              </span>
+              <span className="text-xs uppercase tracking-[0.2em]" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--ochre-light)' }}>
+                Hotel · Otavalo
+              </span>
+            </div>
+          </Link>
+          <div className="flex items-center gap-4">
+            <Link href="#chambres" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
+              Chambres
+            </Link>
+            <Link href="#contact" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity hidden sm:block" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
+              Contact
+            </Link>
+          </div>
+        </div>
+      </nav>
+
       {/* ── HERO ── */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -679,13 +711,25 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 pb-10">
           <div className="grid md:grid-cols-3 gap-10 mb-10">
             <div>
-              <h3 className="text-2xl font-bold mb-3"
-                style={{ fontFamily: "'Playfair Display', serif", color: 'var(--ochre-light)' }}>
-                {hotelData.name}
-              </h3>
-              <p className="italic mb-1" style={{ fontFamily: "'Crimson Pro', serif", color: 'rgba(245,239,224,0.7)' }}>
-                {hotelData.tagline}
-              </p>
+              <div className="flex items-center gap-4 mb-4">
+                <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0" style={{ background: 'var(--cream)', boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
+                  <Image
+                    src="/assets/logo/logo_andariego.png"
+                    alt="Hotel El Andariego Logo"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold leading-tight"
+                    style={{ fontFamily: "'Playfair Display', serif", color: 'var(--ochre-light)' }}>
+                    {hotelData.name}
+                  </h3>
+                  <p className="italic text-sm" style={{ fontFamily: "'Crimson Pro', serif", color: 'rgba(245,239,224,0.7)' }}>
+                    {hotelData.tagline}
+                  </p>
+                </div>
+              </div>
               <p className="text-sm mt-3" style={{ color: 'rgba(245,239,224,0.5)', fontFamily: "'Crimson Pro', serif" }}>
                 {hotelData.address.street}<br />
                 {hotelData.address.city}, {hotelData.address.country}
