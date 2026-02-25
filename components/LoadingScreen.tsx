@@ -103,7 +103,7 @@ export function LoadingScreen() {
 
         {/* Tagline */}
         <p className="loading-tagline" style={{ animationDelay: '0.55s' }}>
-          Votre refuge authentique au cœur d'Otavalo
+          Tu refugio auténtico en el corazón de Otavalo
         </p>
 
         {/* Ornement inférieur */}

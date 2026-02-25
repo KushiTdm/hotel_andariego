@@ -21,7 +21,7 @@ const iconMap: Record<string, any> = {
 };
 
 export default function Home() {
-  const whatsappMessage = `Bonjour! Je souhaite obtenir plus d'informations sur l'Hotel El Andariego à Otavalo.`;
+  const whatsappMessage = `Hola! Me gustaría obtener más información sobre el Hotel El Andariego en Otavalo.`;
   const [roomSlide, setRoomSlide] = useState(0);
   const roomsPerSlide = 3;
   const totalSlides = Math.ceil(hotelData.rooms.length / roomsPerSlide);
@@ -56,13 +56,13 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-4">
             <Link href="#chambres" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
-              Chambres
+              Habitaciones
             </Link>
             <Link href="#activites" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
-              Activités
+              Actividades
             </Link>
             <Link href="#contact" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity hidden sm:block" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
-              Contact
+              Contacto
             </Link>
           </div>
         </div>
@@ -147,7 +147,7 @@ export default function Home() {
                 <span className="absolute inset-0" style={{ background: 'rgba(196,85,26,0.82)' }} />
                 <span className="relative flex items-center gap-3 px-10 py-4 uppercase font-semibold tracking-widest"
                   style={{ color: 'var(--cream)' }}>
-                  Découvrir nos chambres
+                  Descubrir habitaciones
                 </span>
               </button>
             </Link>
@@ -191,7 +191,7 @@ export default function Home() {
                 <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                 </svg>
-                Réserver par WhatsApp
+                Reservar por WhatsApp
               </span>
             </button>
           </div>
@@ -228,7 +228,7 @@ export default function Home() {
               <div className="absolute -top-5 -left-5 w-24 h-24 flex flex-col items-center justify-center rounded-full shadow-lg text-center"
                 style={{ background: 'var(--terracotta)', color: 'white' }}>
                 <span className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>16</span>
-                <span className="text-xs uppercase tracking-wider leading-tight">chambres</span>
+                <span className="text-xs uppercase tracking-wider leading-tight">habitaciones</span>
               </div>
             </div>
 
@@ -236,29 +236,29 @@ export default function Home() {
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 rotate-45" style={{ background: 'var(--terracotta)', opacity: 0.7 }} />
                 <span className="text-sm uppercase tracking-[0.3em]" style={{ color: 'var(--terracotta)', fontFamily: "'Crimson Pro', serif" }}>
-                  Notre histoire
+                  Nuestra historia
                 </span>
               </div>
 
               <h2 className="text-5xl font-bold mb-6 leading-tight"
                 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-                Bienvenue à<br />
+                Bienvenido a<br />
                 <em style={{ color: 'var(--terracotta)' }}>Otavalo</em>
               </h2>
 
               <p className="text-lg mb-5 leading-relaxed" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-                Niché au cœur d'Otavalo, capital artisanale des Andes, notre hôtel est le point de départ idéal pour explorer le célèbre marché kichwa, les lagunes andines et les communautés indigènes aux traditions millénaires.
+                Situado en el corazón de Otavalo, capital artesanal de los Andes, nuestro hotel es el punto de partida ideal para explorar el famoso mercado kichwa, las lagunas andinas y las comunidades indígenas con tradiciones milenarias.
               </p>
               <p className="text-lg mb-8 leading-relaxed" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-                Avec {hotelData.info.rooms} chambres réparties sur {hotelData.info.floors} étages, nous accueillons jusqu'à {hotelData.info.capacity} voyageurs dans une atmosphère chaleureuse qui reflète l'âme andine.
+                Con {hotelData.info.rooms} habitaciones distribuidas en {hotelData.info.floors} pisos, recibimos hasta {hotelData.info.capacity} viajeros en un ambiente cálido que refleja el alma andina.
               </p>
 
               <div className="grid grid-cols-2 gap-6 mb-10">
                 {[
-                  { icon: CheckCircle, title: 'Emplacement central', sub: 'À 2 min du marché' },
-                  { icon: Award, title: 'Service authentique', sub: 'Équipe locale 24/7' },
-                  { icon: Star, title: 'Vue panoramique', sub: 'Rooftop sur les Andes' },
-                  { icon: Users, title: 'Pour tous', sub: 'Couples à backpackers' },
+                  { icon: CheckCircle, title: 'Ubicación céntrica', sub: 'A 2 min del mercado' },
+                  { icon: Award, title: 'Servicio auténtico', sub: 'Equipo local 24/7' },
+                  { icon: Star, title: 'Vista panorámica', sub: 'Terraza hacia los Andes' },
+                  { icon: Users, title: 'Para todos', sub: 'Parejas a mochileros' },
                 ].map(({ icon: Icon, title, sub }) => (
                   <div key={title} className="flex items-start gap-3">
                     <div className="w-10 h-10 flex-shrink-0 flex items-center justify-center"
@@ -281,7 +281,7 @@ export default function Home() {
       <div className="textile-border-top textile-border-bottom py-6" style={{ background: 'var(--cream-dark)' }}>
         <div className="max-w-4xl mx-auto px-4 text-center">
           <p className="text-base italic" style={{ fontFamily: "'EB Garamond', serif", color: 'var(--warm-brown-light)', fontSize: '1.1rem' }}>
-            "Otavalo, où les fils de coton tissent les légendes des Andes depuis des millénaires"
+            "Otavalo, donde los hilos de algodón tejen las leyendas de los Andes desde hace milenios"
           </p>
         </div>
       </div>
@@ -297,11 +297,11 @@ export default function Home() {
             </div>
             <h2 className="text-5xl font-bold mb-4"
               style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-              Nos Chambres
+              Nuestras Habitaciones
             </h2>
             <p className="text-xl max-w-2xl mx-auto leading-relaxed"
               style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-              Du dortoir convivial aux chambres familiales spacieuses, trouvez votre nid andin idéal
+              Desde dormitorios acogedores hasta habitaciones familiares espaciosas, encuentra tu nido andino ideal
             </p>
           </div>
 
@@ -354,10 +354,10 @@ export default function Home() {
             </div>
             <h2 className="text-5xl font-bold mb-4"
               style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-              Services & Équipements
+              Servicios & Equipamiento
             </h2>
             <p className="text-xl" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-              Tout pour rendre votre séjour andin inoubliable
+              Todo para hacer tu estadía andina inolvidable
             </p>
           </div>
 
@@ -426,11 +426,11 @@ export default function Home() {
             </div>
             <h2 className="text-5xl font-bold mb-4"
               style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-              À explorer depuis l'hôtel
+              Qué explorar desde el hotel
             </h2>
             <p className="text-xl max-w-2xl mx-auto leading-relaxed"
               style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
-              Sucre 10-07 y Colón, Otavalo — tout est à portée de main
+              Sucre 10-07 y Colón, Otavalo — todo está al alcance de la mano
             </p>
           </div>
 
@@ -439,8 +439,8 @@ export default function Home() {
               {
                 name: 'Plaza de Ponchos',
                 image: '/assets/activities/plaza_de_ponchos.webp',
-                imageAlt: 'Marché artisanal Plaza de Ponchos à Otavalo, Équateur',
-                description: "Le plus grand marché artisanal indigène d'Amérique latine",
+                imageAlt: 'Mercado artesanal Plaza de Ponchos en Otavalo, Ecuador',
+                description: 'El mercado artesanal indígena más grande de América Latina',
                 walk: '2 min',
                 car: null,
                 color: 'var(--terracotta)',
@@ -449,8 +449,8 @@ export default function Home() {
               {
                 name: 'Cascada de Peguche',
                 image: '/assets/activities/cascada_de_peguche.webp',
-                imageAlt: "Cascada de Peguche, chute d'eau sacrée kichwa près d'Otavalo",
-                description: "Chute d'eau sacrée kichwa au cœur de la forêt andine",
+                imageAlt: 'Cascada de Peguche, cascada sagrada kichwa cerca de Otavalo',
+                description: 'Cascada sagrada kichwa en el corazón del bosque andino',
                 walk: '45 min',
                 car: '10 min',
                 color: 'var(--teal)',
@@ -459,8 +459,8 @@ export default function Home() {
               {
                 name: 'Lagunas de Mojanda',
                 image: '/assets/activities/lagunas_de_mojanda.webp',
-                imageAlt: 'Lagunas de Mojanda, lacs de cratère dans les Andes équatoriennes',
-                description: "Trois lacs de cratère à 3 700 m d'altitude, panorama exceptionnel",
+                imageAlt: 'Lagunas de Mojanda, lagos de cráter en los Andes ecuatorianos',
+                description: 'Tres lagos de cráter a 3.700 m de altitud, panorama excepcional',
                 walk: null,
                 car: '30 min',
                 color: 'var(--ochre)',
@@ -469,8 +469,8 @@ export default function Home() {
               {
                 name: 'Laguna de Cuicocha',
                 image: '/assets/activities/laguna_de_cuicocha.webp',
-                imageAlt: 'Laguna de Cuicocha, lac volcanique dans la caldeira du Cotacachi',
-                description: 'Lac volcanique dans la caldeira du Cotacachi, île centrale mythique',
+                imageAlt: 'Laguna de Cuicocha, lago volcánico en la caldera del Cotacachi',
+                description: 'Lago volcánico en la caldera del Cotacachi, isla central mítica',
                 walk: null,
                 car: '40 min',
                 color: 'var(--indigo)',
@@ -479,8 +479,8 @@ export default function Home() {
               {
                 name: 'Parque Cóndor',
                 image: '/assets/activities/parque_condor.webp',
-                imageAlt: "Parque Cóndor, centre de réhabilitation d'oiseaux rapaces près d'Otavalo",
-                description: "Centre de réhabilitation d'oiseaux rapaces avec vols en liberté",
+                imageAlt: 'Parque Cóndor, centro de rehabilitación de aves rapaces cerca de Otavalo',
+                description: 'Centro de rehabilitación de aves rapaces con vuelos en libertad',
                 walk: null,
                 car: '20 min',
                 color: 'var(--warm-brown)',
@@ -538,7 +538,7 @@ export default function Home() {
                         <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--terracotta)' }}>
                           {place.walk}
                         </span>
-                        <span className="text-xs" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>à pied</span>
+                        <span className="text-xs" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>a pie</span>
                       </div>
                     )}
                     {place.car && (
@@ -548,7 +548,7 @@ export default function Home() {
                         <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--teal)' }}>
                           {place.car}
                         </span>
-                        <span className="text-xs" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>en voiture</span>
+                        <span className="text-xs" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>en carro</span>
                       </div>
                     )}
                   </div>
@@ -570,7 +570,7 @@ export default function Home() {
             </div>
             <h2 className="text-5xl font-bold mb-4"
               style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
-              Contactez-nous
+              Contáctanos
             </h2>
           </div>
 
@@ -580,17 +580,17 @@ export default function Home() {
                 {[
                   {
                     icon: MapPin,
-                    title: 'Adresse',
+                    title: 'Dirección',
                     content: <>{hotelData.address.street}<br />{hotelData.address.city}, {hotelData.address.country}</>
                   },
                   {
                     icon: Phone,
-                    title: 'Téléphone',
+                    title: 'Teléfono',
                     content: <a href={`tel:${hotelData.contact.phone}`} className="hover:underline" style={{ color: 'var(--warm-brown-light)' }}>{hotelData.contact.phone}</a>
                   },
                   {
                     icon: Mail,
-                    title: 'Email',
+                    title: 'Correo',
                     content: <a href={`mailto:${hotelData.contact.email}`} className="hover:underline break-all" style={{ color: 'var(--warm-brown-light)' }}>{hotelData.contact.email}</a>
                   },
                 ].map(({ icon: Icon, title, content }) => (
@@ -607,64 +607,6 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="mb-10">
-                <h3 className="font-semibold mb-5 text-base uppercase tracking-[0.2em]"
-                  style={{ fontFamily: "'Playfair Display', serif", color: 'var(--terracotta)', fontSize: '12px' }}>
-                  ◆ &nbsp;Suivez-nous
-                </h3>
-                <div className="flex gap-3">
-                  <a href={hotelData.socialMedia.instagram} target="_blank" rel="noopener noreferrer"
-                    className="group flex items-center gap-2.5 px-4 py-2.5 transition-all duration-300 hover:scale-105"
-                    style={{
-                      background: 'var(--cream-dark)',
-                      borderRadius: '2px',
-                      border: '1px solid rgba(61,43,31,0.12)',
-                      color: 'var(--warm-brown)',
-                      fontFamily: "'Crimson Pro', serif",
-                      fontSize: '14px',
-                    }}>
-                    <span className="w-7 h-7 flex items-center justify-center flex-shrink-0 rounded-sm"
-                      style={{ background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)' }}>
-                      <Instagram className="w-3.5 h-3.5 text-white" />
-                    </span>
-                    <span className="font-medium">Instagram</span>
-                  </a>
-                  <a href={hotelData.socialMedia.facebook} target="_blank" rel="noopener noreferrer"
-                    className="group flex items-center gap-2.5 px-4 py-2.5 transition-all duration-300 hover:scale-105"
-                    style={{
-                      background: 'var(--cream-dark)',
-                      borderRadius: '2px',
-                      border: '1px solid rgba(61,43,31,0.12)',
-                      color: 'var(--warm-brown)',
-                      fontFamily: "'Crimson Pro', serif",
-                      fontSize: '14px',
-                    }}>
-                    <span className="w-7 h-7 flex items-center justify-center flex-shrink-0 rounded-sm"
-                      style={{ background: '#1877f2' }}>
-                      <Facebook className="w-3.5 h-3.5 text-white" />
-                    </span>
-                    <span className="font-medium">Facebook</span>
-                  </a>
-                  <a href={hotelData.socialMedia.tiktok} target="_blank" rel="noopener noreferrer"
-                    className="group flex items-center gap-2.5 px-4 py-2.5 transition-all duration-300 hover:scale-105"
-                    style={{
-                      background: 'var(--cream-dark)',
-                      borderRadius: '2px',
-                      border: '1px solid rgba(61,43,31,0.12)',
-                      color: 'var(--warm-brown)',
-                      fontFamily: "'Crimson Pro', serif",
-                      fontSize: '14px',
-                    }}>
-                    <span className="w-7 h-7 flex items-center justify-center flex-shrink-0 rounded-sm"
-                      style={{ background: '#010101' }}>
-                      <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
-                      </svg>
-                    </span>
-                    <span className="font-medium">TikTok</span>
-                  </a>
-                </div>
-              </div>
 
               <button
                 onClick={() => window.open(`https://wa.me/593995941029?text=${encodeURIComponent(whatsappMessage)}`, '_blank')}
@@ -686,7 +628,7 @@ export default function Home() {
                   <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                   </svg>
-                  Contacter via WhatsApp
+                  Contactar por WhatsApp
                 </span>
               </button>
             </div>
@@ -711,7 +653,7 @@ export default function Home() {
       {/* ── FOOTER ── */}
       <footer className="relative textile-border-top pt-8" style={{ background: 'var(--warm-brown)', color: 'var(--cream)' }}>
         <div className="max-w-7xl mx-auto px-4 pb-10">
-          <div className="grid md:grid-cols-3 gap-10 mb-10">
+          <div className="grid md:grid-cols-4 gap-10 mb-10">
             <div>
               <div className="flex items-center gap-4 mb-4">
                 <div className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0" style={{ background: 'var(--cream)', boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
@@ -743,25 +685,66 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4 uppercase tracking-wider text-sm"
                 style={{ color: 'var(--ochre-light)', fontFamily: "'Playfair Display', serif" }}>
-                Informations
+                Información
               </h4>
               <ul className="space-y-2 text-sm" style={{ fontFamily: "'Crimson Pro', serif", color: 'rgba(245,239,224,0.7)' }}>
                 <li>• {hotelData.pets}</li>
                 <li>• {hotelData.cancellationPolicy}</li>
-                <li>• Paiement: {hotelData.paymentMethods.join(', ')}</li>
+                <li>• Pago: {hotelData.paymentMethods.join(', ')}</li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold mb-4 uppercase tracking-wider text-sm"
                 style={{ color: 'var(--ochre-light)', fontFamily: "'Playfair Display', serif" }}>
-                Horaires
+                Horarios
               </h4>
               <p className="text-sm" style={{ fontFamily: "'Crimson Pro', serif", color: 'rgba(245,239,224,0.7)', lineHeight: '2' }}>
-                Réception ouverte 24h/24<br />
-                Check-in: 14h00<br />
-                Check-out: 12h00
+                Recepción abierta 24h<br />
+                Check-in: 14:00<br />
+                Check-out: 12:00
               </p>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-4 uppercase tracking-wider text-sm"
+                style={{ color: 'var(--ochre-light)', fontFamily: "'Playfair Display', serif" }}>
+                Síguenos
+              </h4>
+              <div className="flex gap-3">
+                <a
+                  href={hotelData.socialMedia.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                  style={{ background: 'var(--terracotta)', color: 'var(--cream)' }}
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </a>
+                <a
+                  href={hotelData.socialMedia.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                  style={{ background: 'var(--terracotta)', color: 'var(--cream)' }}
+                  aria-label="Facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a
+                  href={hotelData.socialMedia.tiktok}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                  style={{ background: 'var(--terracotta)', color: 'var(--cream)' }}
+                  aria-label="TikTok"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
 
@@ -769,8 +752,42 @@ export default function Home() {
             background: 'repeating-linear-gradient(90deg, var(--terracotta) 0px, var(--terracotta) 16px, var(--ochre) 16px, var(--ochre) 32px, var(--teal) 32px, var(--teal) 48px, var(--ochre) 48px, var(--ochre) 64px)'
           }} />
 
-          <div className="text-center text-sm" style={{ color: 'rgba(245,239,224,0.45)', fontFamily: "'Crimson Pro', serif" }}>
-            <p>© 2026 {hotelData.name} · Otavalo, Ecuador. Tous droits réservés.</p>
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm" style={{ color: 'rgba(245,239,224,0.45)', fontFamily: "'Crimson Pro', serif" }}>
+            <p>© 2026 {hotelData.name} · Otavalo, Ecuador. Todos los derechos reservados.</p>
+            <div className="flex items-center gap-2">
+              <span>Web development by</span>
+              <a
+                href="https://neuraweb.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all duration-300 hover:opacity-80"
+                style={{ color: 'var(--ochre-light)' }}
+              >
+                <Image
+                  src="/assets/logo/neurawebW.webp"
+                  alt="NeuraWeb"
+                  width={90}
+                  height={24}
+                  className="h-6 w-auto"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-6 text-center" style={{ borderTop: '1px solid rgba(245,239,224,0.1)' }}>
+            <p className="text-xs leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(245,239,224,0.35)', fontFamily: "'Crimson Pro', serif" }}>
+              Website designed and optimized to convert visitors into guests. Need a professional website for your hotel or tourism business?{' '}
+              <a
+                href="https://neuraweb.tech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-colors duration-200 hover:underline"
+                style={{ color: 'var(--ochre-light)' }}
+              >
+                Learn about NeuraWeb
+              </a>
+              {' '}— Specialists in web development for the tourism sector in Ecuador.
+            </p>
           </div>
         </div>
       </footer>

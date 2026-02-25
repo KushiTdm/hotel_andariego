@@ -31,8 +31,8 @@ const amenityIcons: Record<string, any> = {
 const amenityLabels: Record<string, string> = {
   wifi: 'WiFi',
   tv: 'TV',
-  shower: 'Salle de bain',
-  balcony: 'Balcon',
+  shower: 'Baño',
+  balcony: 'Balcón',
 };
 
 export function RoomCard({ room }: RoomCardProps) {
@@ -120,7 +120,7 @@ export function RoomCard({ room }: RoomCardProps) {
               letterSpacing: '0.05em',
             }}
           >
-            Voir les détails →
+            Ver detalles →
           </button>
         </Link>
       </div>

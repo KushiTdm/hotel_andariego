@@ -34,7 +34,7 @@ export function WhatsAppButton({
           borderRadius: '50%',
           boxShadow: '0 4px 20px rgba(37, 211, 102, 0.35)',
         }}
-        aria-label="Contacter via WhatsApp"
+        aria-label="Contactar por WhatsApp"
       >
         <MessageCircle className="w-8 h-8" />
       </button>
@@ -63,7 +63,7 @@ export function WhatsAppButton({
       }}
     >
       <MessageCircle className="w-5 h-5 mr-2 flex-shrink-0" />
-      Réserver via WhatsApp
+      Reservar por WhatsApp
     </button>
   );
 }
