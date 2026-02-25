@@ -118,7 +118,6 @@ export default function Home() {
                   letterSpacing: '0.18em',
                   fontSize: '13px',
                 }}>
-                {/* Outer frame — double border andine */}
                 <span className="absolute inset-0 pointer-events-none" style={{
                   border: '1px solid rgba(212,137,42,0.6)',
                   margin: '3px',
@@ -126,7 +125,6 @@ export default function Home() {
                 <span className="absolute inset-0 pointer-events-none" style={{
                   border: '1px solid rgba(212,137,42,0.25)',
                 }} />
-                {/* Corner diamonds */}
                 <span className="absolute top-0 left-0 w-3 h-3 flex items-center justify-center -translate-x-0.5 -translate-y-0.5"
                   style={{ color: 'var(--ochre)', fontSize: '9px', lineHeight: 1 }}>◆</span>
                 <span className="absolute top-0 right-0 w-3 h-3 flex items-center justify-center translate-x-0.5 -translate-y-0.5"
@@ -135,20 +133,15 @@ export default function Home() {
                   style={{ color: 'var(--ochre)', fontSize: '9px', lineHeight: 1 }}>◆</span>
                 <span className="absolute bottom-0 right-0 w-3 h-3 flex items-center justify-center translate-x-0.5 translate-y-0.5"
                   style={{ color: 'var(--ochre)', fontSize: '9px', lineHeight: 1 }}>◆</span>
-                {/* Top woven band */}
                 <span className="absolute top-0 left-4 right-4 h-0.5" style={{
                   background: 'repeating-linear-gradient(90deg, var(--terracotta) 0, var(--terracotta) 5px, var(--ochre) 5px, var(--ochre) 10px, var(--teal) 10px, var(--teal) 15px, var(--ochre) 15px, var(--ochre) 20px)',
                 }} />
-                {/* Bottom woven band */}
                 <span className="absolute bottom-0 left-4 right-4 h-0.5" style={{
                   background: 'repeating-linear-gradient(90deg, var(--teal) 0, var(--teal) 5px, var(--ochre) 5px, var(--ochre) 10px, var(--terracotta) 10px, var(--terracotta) 15px, var(--ochre) 15px, var(--ochre) 20px)',
                 }} />
-                {/* Hover fill */}
                 <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400"
                   style={{ background: 'linear-gradient(135deg, rgba(196,85,26,0.85) 0%, rgba(196,85,26,0.95) 100%)' }} />
-                {/* Background */}
                 <span className="absolute inset-0" style={{ background: 'rgba(196,85,26,0.82)' }} />
-                {/* Label */}
                 <span className="relative flex items-center gap-3 px-10 py-4 uppercase font-semibold tracking-widest"
                   style={{ color: 'var(--cream)' }}>
                   Découvrir nos chambres
@@ -156,7 +149,7 @@ export default function Home() {
               </button>
             </Link>
 
-            {/* Bouton WhatsApp — outline andéen, verre dépoli */}
+            {/* Bouton WhatsApp */}
             <button
               onClick={() => window.open(`https://wa.me/593995941029?text=${encodeURIComponent(whatsappMessage)}`, '_blank')}
               className="group relative overflow-hidden"
@@ -165,7 +158,6 @@ export default function Home() {
                 letterSpacing: '0.18em',
                 fontSize: '13px',
               }}>
-              {/* Outer frame */}
               <span className="absolute inset-0 pointer-events-none" style={{
                 border: '1px solid rgba(245,239,224,0.5)',
                 margin: '3px',
@@ -173,7 +165,6 @@ export default function Home() {
               <span className="absolute inset-0 pointer-events-none" style={{
                 border: '1px solid rgba(245,239,224,0.18)',
               }} />
-              {/* Corner diamonds */}
               <span className="absolute top-0 left-0 w-3 h-3 flex items-center justify-center -translate-x-0.5 -translate-y-0.5"
                 style={{ color: 'rgba(245,239,224,0.6)', fontSize: '9px', lineHeight: 1 }}>◆</span>
               <span className="absolute top-0 right-0 w-3 h-3 flex items-center justify-center translate-x-0.5 -translate-y-0.5"
@@ -182,20 +173,16 @@ export default function Home() {
                 style={{ color: 'rgba(245,239,224,0.6)', fontSize: '9px', lineHeight: 1 }}>◆</span>
               <span className="absolute bottom-0 right-0 w-3 h-3 flex items-center justify-center translate-x-0.5 translate-y-0.5"
                 style={{ color: 'rgba(245,239,224,0.6)', fontSize: '9px', lineHeight: 1 }}>◆</span>
-              {/* Top woven band */}
               <span className="absolute top-0 left-4 right-4 h-0.5" style={{
                 background: 'repeating-linear-gradient(90deg, rgba(245,239,224,0.5) 0, rgba(245,239,224,0.5) 5px, rgba(212,137,42,0.5) 5px, rgba(212,137,42,0.5) 10px, rgba(42,123,111,0.5) 10px, rgba(42,123,111,0.5) 15px, rgba(212,137,42,0.5) 15px, rgba(212,137,42,0.5) 20px)',
               }} />
-              {/* Bottom woven band */}
               <span className="absolute bottom-0 left-4 right-4 h-0.5" style={{
                 background: 'repeating-linear-gradient(90deg, rgba(42,123,111,0.5) 0, rgba(42,123,111,0.5) 5px, rgba(212,137,42,0.5) 5px, rgba(212,137,42,0.5) 10px, rgba(245,239,224,0.5) 10px, rgba(245,239,224,0.5) 15px, rgba(212,137,42,0.5) 15px, rgba(212,137,42,0.5) 20px)',
               }} />
-              {/* Background */}
               <span className="absolute inset-0 transition-colors duration-300"
                 style={{ background: 'rgba(255,255,255,0.06)', backdropFilter: 'blur(8px)' }} />
               <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ background: 'rgba(255,255,255,0.1)' }} />
-              {/* Label */}
               <span className="relative flex items-center gap-3 px-10 py-4 uppercase font-semibold"
                 style={{ color: 'var(--cream)' }}>
                 <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
@@ -231,10 +218,8 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              {/* Decorative offset frame */}
               <div className="absolute -bottom-4 -right-4 w-full h-full rounded-sm -z-10"
                 style={{ border: '3px solid var(--terracotta)', opacity: 0.4 }} />
-              {/* Floating badge */}
               <div className="absolute -top-5 -left-5 w-24 h-24 flex flex-col items-center justify-center rounded-full shadow-lg text-center"
                 style={{ background: 'var(--terracotta)', color: 'white' }}>
                 <span className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>16</span>
@@ -243,7 +228,6 @@ export default function Home() {
             </div>
 
             <div>
-              {/* Geometric ornament */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-8 h-8 rotate-45" style={{ background: 'var(--terracotta)', opacity: 0.7 }} />
                 <span className="text-sm uppercase tracking-[0.3em]" style={{ color: 'var(--terracotta)', fontFamily: "'Crimson Pro', serif" }}>
@@ -301,7 +285,6 @@ export default function Home() {
       <section id="chambres" className="py-24 px-4" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            {/* Andean ornament */}
             <div className="flex items-center justify-center gap-4 mb-4">
               <span style={{ color: 'var(--terracotta)', fontSize: '20px' }}>◆</span>
               <span style={{ color: 'var(--ochre)', fontSize: '14px' }}>◆</span>
@@ -420,8 +403,7 @@ export default function Home() {
         </div>
       </section>
 
-
-      {/* ── DISTANCES ── */}
+      {/* ── DISTANCES / ACTIVITÉS ── */}
       <section className="py-24 px-4 andean-pattern" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
@@ -455,7 +437,7 @@ export default function Home() {
               {
                 name: 'Cascada de Peguche',
                 image: '/assets/activities/cascada_de_peguche .jpg',
-                imageAlt: 'Cascada de Peguche, chute d\'eau sacrée kichwa près d\'Otavalo',
+                imageAlt: "Cascada de Peguche, chute d'eau sacrée kichwa près d'Otavalo",
                 description: "Chute d'eau sacrée kichwa au cœur de la forêt andine",
                 walk: '45 min',
                 car: '10 min',
@@ -475,7 +457,7 @@ export default function Home() {
               {
                 name: 'Laguna de Cuicocha',
                 image: '/assets/activities/laguna_de_cuicocha.webp',
-                imageAlt: 'Laguna de Cuicocha, lac volcanique avec île centrale dans la caldeira du Cotacachi',
+                imageAlt: 'Laguna de Cuicocha, lac volcanique dans la caldeira du Cotacachi',
                 description: 'Lac volcanique dans la caldeira du Cotacachi, île centrale mythique',
                 walk: null,
                 car: '40 min',
@@ -485,7 +467,7 @@ export default function Home() {
               {
                 name: 'Parque Cóndor',
                 image: '/assets/activities/parque_condor.jpg',
-                imageAlt: 'Parque Cóndor, centre de réhabilitation d\'oiseaux rapaces près d\'Otavalo',
+                imageAlt: "Parque Cóndor, centre de réhabilitation d'oiseaux rapaces près d'Otavalo",
                 description: "Centre de réhabilitation d'oiseaux rapaces avec vols en liberté",
                 walk: null,
                 car: '20 min',
@@ -495,45 +477,41 @@ export default function Home() {
             ].map((place) => (
               <div
                 key={place.name}
-                className="card-lift relative overflow-hidden group"
+                className="card-lift overflow-hidden group"
                 style={{
                   borderRadius: '2px',
+                  background: 'white',
                   boxShadow: place.highlight
                     ? '0 4px 24px rgba(196,85,26,0.18)'
                     : '0 2px 12px rgba(61,43,31,0.08)',
                 }}
               >
-                {/* Background Image */}
-                <div className="absolute inset-0">
+                {/* Image — hauteur fixe pour que Next/Image fill fonctionne correctement */}
+                <div className="relative h-52 overflow-hidden">
                   <Image
                     src={place.image}
                     alt={place.imageAlt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
                   />
+                  {/* Colored top border */}
+                  <div className="absolute top-0 left-0 right-0 h-1 z-10" style={{ background: place.color }} />
+                  {/* Woven band */}
+                  <div className="absolute top-1 left-0 right-0 h-0.5 z-10" style={{
+                    background: 'repeating-linear-gradient(90deg, var(--terracotta) 0, var(--terracotta) 8px, var(--ochre) 8px, var(--ochre) 16px, var(--teal) 16px, var(--teal) 24px, var(--ochre) 24px, var(--ochre) 32px)'
+                  }} />
                 </div>
-                
-                {/* Dark overlay filter for readability */}
-                <div className="absolute inset-0" style={{
-                  background: 'linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.3) 100%)'
-                }} />
-                
-                {/* Colored top border */}
-                <div className="absolute top-0 left-0 right-0 h-1" style={{ background: place.color }} />
-                
-                {/* Woven band top */}
-                <div className="absolute top-1 left-0 right-0 h-0.5" style={{
-                  background: 'repeating-linear-gradient(90deg, var(--terracotta) 0, var(--terracotta) 8px, var(--ochre) 8px, var(--ochre) 16px, var(--teal) 16px, var(--teal) 24px, var(--ochre) 24px, var(--ochre) 32px)'
-                }} />
 
-                {/* Content */}
-                <div className="relative z-10 p-6 h-full min-h-[200px] flex flex-col justify-end text-white">
+                {/* Contenu texte sous l'image */}
+                <div className="p-5">
+                  {/* Accent line */}
+                  <div className="w-8 h-0.5 mb-3" style={{ background: place.color }} />
                   <h3 className="text-xl font-bold leading-tight mb-2"
-                    style={{ fontFamily: "'Playfair Display', serif" }}>
+                    style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>
                     {place.name}
                   </h3>
-                  <p className="text-sm mb-4 leading-relaxed opacity-90"
-                    style={{ fontFamily: "'Crimson Pro', serif" }}>
+                  <p className="text-sm mb-4 leading-relaxed"
+                    style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
                     {place.description}
                   </p>
 
@@ -541,22 +519,22 @@ export default function Home() {
                   <div className="flex flex-wrap gap-2">
                     {place.walk && (
                       <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm"
-                        style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)' }}>
+                        style={{ background: 'rgba(196,85,26,0.08)', border: '1px solid rgba(196,85,26,0.15)' }}>
                         <span className="text-base">🚶</span>
-                        <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--terracotta)' }}>
                           {place.walk}
                         </span>
-                        <span className="text-xs opacity-80" style={{ fontFamily: "'Crimson Pro', serif" }}>à pied</span>
+                        <span className="text-xs" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>à pied</span>
                       </div>
                     )}
                     {place.car && (
                       <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm"
-                        style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(4px)' }}>
+                        style={{ background: 'rgba(42,123,111,0.08)', border: '1px solid rgba(42,123,111,0.15)' }}>
                         <span className="text-base">🚗</span>
-                        <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif" }}>
+                        <span className="text-sm font-semibold" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--teal)' }}>
                           {place.car}
                         </span>
-                        <span className="text-xs opacity-80" style={{ fontFamily: "'Crimson Pro', serif" }}>en voiture</span>
+                        <span className="text-xs" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>en voiture</span>
                       </div>
                     )}
                   </div>
@@ -570,7 +548,6 @@ export default function Home() {
       {/* ── CONTACT ── */}
       <section id="contact" className="py-24 px-4" style={{ backgroundColor: 'var(--cream)' }}>
         <div className="max-w-7xl mx-auto">
-          {/* Section header */}
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-4">
               <span style={{ color: 'var(--terracotta)', fontSize: '20px' }}>◆</span>
@@ -675,7 +652,6 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* WhatsApp contact button — style andéen sobre */}
               <button
                 onClick={() => window.open(`https://wa.me/593995941029?text=${encodeURIComponent(whatsappMessage)}`, '_blank')}
                 className="group relative w-full py-4 font-semibold uppercase transition-all duration-300 overflow-hidden"
@@ -688,7 +664,6 @@ export default function Home() {
                   fontSize: '13px',
                   boxShadow: '0 4px 20px rgba(61,43,31,0.2)',
                 }}>
-                {/* Bande textile top */}
                 <span className="absolute top-0 left-0 right-0 h-0.5"
                   style={{ background: 'repeating-linear-gradient(90deg, var(--terracotta) 0, var(--terracotta) 8px, var(--ochre) 8px, var(--ochre) 16px, var(--teal) 16px, var(--teal) 24px, var(--ochre) 24px, var(--ochre) 32px)' }} />
                 <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -774,7 +749,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom Andean band */}
           <div className="h-1 mb-6 rounded-full" style={{
             background: 'repeating-linear-gradient(90deg, var(--terracotta) 0px, var(--terracotta) 16px, var(--ochre) 16px, var(--ochre) 32px, var(--teal) 32px, var(--teal) 48px, var(--ochre) 48px, var(--ochre) 64px)'
           }} />
