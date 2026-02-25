@@ -12,6 +12,8 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { RoomCard } from '@/components/RoomCard';
 import { WhatsAppButton } from '@/components/WhatsAppButton';
+import { LanguageSelector } from '@/components/LanguageSelector';
+import { useLanguage } from '@/lib/language-context';
 import hotelData from '@/data/hotel.json';
 
 const iconMap: Record<string, any> = {
@@ -21,6 +23,7 @@ const iconMap: Record<string, any> = {
 };
 
 export default function Home() {
+  const { t } = useLanguage();
   const whatsappMessage = `Bonjour! Je souhaite obtenir plus d'informations sur l'Hotel El Andariego à Otavalo.`;
   const [roomSlide, setRoomSlide] = useState(0);
   const roomsPerSlide = 3;
@@ -56,11 +59,12 @@ export default function Home() {
           </Link>
           <div className="flex items-center gap-4">
             <Link href="#chambres" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
-              Chambres
+              {t('nav.rooms')}
             </Link>
             <Link href="#contact" className="text-sm uppercase tracking-wider hover:opacity-80 transition-opacity hidden sm:block" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--cream)' }}>
-              Contact
+              {t('nav.contact')}
             </Link>
+            <LanguageSelector />
           </div>
         </div>
       </nav>
@@ -216,6 +220,8 @@ export default function Home() {
                   alt={hotelData.about.image.alt}
                   fill
                   className="object-cover"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
               <div className="absolute -bottom-4 -right-4 w-full h-full rounded-sm -z-10"
@@ -390,7 +396,14 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {hotelData.galleryStrip.map((image, i) => (
               <div key={i} className="relative h-48 md:h-64 rounded-sm overflow-hidden img-zoom">
-                <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                <Image 
+                  src={image.src} 
+                  alt={image.alt} 
+                  fill 
+                  className="object-cover" 
+                  loading="lazy"
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                />
                 <div className="absolute inset-0 transition-opacity duration-300"
                   style={{ background: 'linear-gradient(to top, rgba(61,43,31,0.5), transparent)' }} />
               </div>
@@ -426,7 +439,7 @@ export default function Home() {
             {[
               {
                 name: 'Plaza de Ponchos',
-                image: '/assets/activities/plaza_de_ponchos.jpg',
+                image: '/assets/activities/plaza_de_ponchos.webp',
                 imageAlt: 'Marché artisanal Plaza de Ponchos à Otavalo, Équateur',
                 description: "Le plus grand marché artisanal indigène d'Amérique latine",
                 walk: '2 min',
@@ -436,7 +449,7 @@ export default function Home() {
               },
               {
                 name: 'Cascada de Peguche',
-                image: '/assets/activities/cascada_de_peguche .jpg',
+                image: '/assets/activities/cascada_de_peguche.webp',
                 imageAlt: "Cascada de Peguche, chute d'eau sacrée kichwa près d'Otavalo",
                 description: "Chute d'eau sacrée kichwa au cœur de la forêt andine",
                 walk: '45 min',
@@ -446,7 +459,7 @@ export default function Home() {
               },
               {
                 name: 'Lagunas de Mojanda',
-                image: '/assets/activities/lagunas_de_mojanda .jpg',
+                image: '/assets/activities/lagunas_de_mojanda.webp',
                 imageAlt: 'Lagunas de Mojanda, lacs de cratère dans les Andes équatoriennes',
                 description: "Trois lacs de cratère à 3 700 m d'altitude, panorama exceptionnel",
                 walk: null,
@@ -466,7 +479,7 @@ export default function Home() {
               },
               {
                 name: 'Parque Cóndor',
-                image: '/assets/activities/parque_condor.jpg',
+                image: '/assets/activities/parque_condor.webp',
                 imageAlt: "Parque Cóndor, centre de réhabilitation d'oiseaux rapaces près d'Otavalo",
                 description: "Centre de réhabilitation d'oiseaux rapaces avec vols en liberté",
                 walk: null,
@@ -493,6 +506,8 @@ export default function Home() {
                     alt={place.imageAlt}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Colored top border */}
                   <div className="absolute top-0 left-0 right-0 h-1 z-10" style={{ background: place.color }} />
@@ -706,6 +721,8 @@ export default function Home() {
                     alt="Hotel El Andariego Logo"
                     fill
                     className="object-cover"
+                    loading="lazy"
+                    sizes="64px"
                   />
                 </div>
                 <div>

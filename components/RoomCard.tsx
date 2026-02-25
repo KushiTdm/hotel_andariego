@@ -52,6 +52,8 @@ export function RoomCard({ room }: RoomCardProps) {
           alt={room.images[0].alt}
           fill
           className="object-cover"
+          loading="lazy"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {/* Textile top stripe */}
         <div className="absolute top-0 left-0 right-0 h-1" style={{

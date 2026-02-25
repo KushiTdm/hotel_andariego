@@ -245,7 +245,7 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
                     opacity: currentImage === index ? 1 : 0.55,
                   }}
                 >
-                  <Image src={image.src} alt={image.alt} fill className="object-cover" />
+                  <Image src={image.src} alt={image.alt} fill className="object-cover" loading="lazy" sizes="112px" />
                   {index === allImages.length - 1 && (
                     <div className="absolute inset-0 flex items-end justify-center pb-1">
                       <span className="text-white text-[9px] px-1.5 py-0.5"
@@ -402,7 +402,7 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
                 <Link key={otherRoom.id} href={`/chambres/${otherRoom.slug}`}>
                   <div className="card-lift overflow-hidden cursor-pointer" style={{ background: 'white', borderRadius: '2px', boxShadow: '0 2px 12px rgba(61,43,31,0.08)' }}>
                     <div className="relative h-48 img-zoom">
-                      <Image src={otherRoom.images[0].src} alt={otherRoom.images[0].alt} fill className="object-cover" />
+                      <Image src={otherRoom.images[0].src} alt={otherRoom.images[0].alt} fill className="object-cover" loading="lazy" sizes="(max-width: 768px) 100vw, 33vw" />
                     </div>
                     <div className="p-4">
                       <h3 className="font-semibold text-lg mb-1" style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}>

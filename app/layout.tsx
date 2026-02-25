@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { LoadingScreen } from '@/components/LoadingScreen';
+import { LanguageProvider } from '@/lib/language-context';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://hotelelandariego.com'),
@@ -137,8 +138,10 @@ export default function RootLayout({
         <meta name="ICBM" content="0.2344, -78.2628" />
       </head>
       <body>
-        <LoadingScreen />
-        {children}
+        <LanguageProvider>
+          <LoadingScreen />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );
