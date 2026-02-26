@@ -242,8 +242,8 @@ export function LoadingScreen() {
         /* Logo wrapper */
         .loading-logo-wrap {
           position: relative;
-          width: 120px;
-          height: 120px;
+          width: 180px;
+          height: 180px;
           margin: 0 0 28px;
           opacity: 0;
           animation: fade-scale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
