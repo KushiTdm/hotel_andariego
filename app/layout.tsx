@@ -6,27 +6,29 @@ import { LanguageProvider } from '@/lib/language-context';
 export const metadata: Metadata = {
   metadataBase: new URL('https://hotel-elandariego-test.netlify.app'),
   title: {
-    default: 'Hotel El Andariego | Otavalo, Ecuador — Hébergement Authentique Andin',
+    default: 'Hotel El Andariego | Otavalo, Ecuador — Hospedaje Auténtico Andino',
     template: '%s | Hotel El Andariego — Otavalo',
   },
   description:
-    "Découvrez l'authenticité des Andes équatoriennes à l'Hotel El Andariego, au cœur d'Otavalo. Chambres confortables, petit-déjeuner inclus, vue sur les Andes et accès direct au célèbre marché artisanal kichwa. Réservez via WhatsApp.",
+    'Descubre la autenticidad de los Andes ecuatorianos en el Hotel El Andariego, en el corazón de Otavalo. Habitaciones cómodas, desayuno incluido, vista a los Andes y acceso directo al famoso mercado artesanal kichwa. Reserva por WhatsApp.',
   keywords: [
     'hotel Otavalo',
     'hotel Ecuador',
-    'hébergement Otavalo',
-    'hotel andin',
+    'hospedaje Otavalo',
+    'hotel andino',
     'El Andariego',
-    'séjour Otavalo',
+    'estadía Otavalo',
     'backpacker Ecuador',
-    'chambre Otavalo',
-    'marché artisanal Otavalo',
+    'habitación Otavalo',
+    'mercado artesanal Otavalo',
     'hostal Otavalo',
-    'hotel pas cher Otavalo',
-    'tourisme Otavalo',
-    'hotel famille Otavalo',
-    'culture kichwa',
-    'Andes équateur voyage',
+    'hotel económico Otavalo',
+    'turismo Otavalo',
+    'hotel familiar Otavalo',
+    'cultura kichwa',
+    'Andes Ecuador viaje',
+    'hotel boutique Otavalo',
+    'alojamiento Imbabura',
   ],
   authors: [{ name: 'Hotel El Andariego' }],
   creator: 'Hotel El Andariego',
@@ -34,19 +36,19 @@ export const metadata: Metadata = {
   category: 'travel',
   openGraph: {
     type: 'website',
-    locale: 'fr_FR',
-    alternateLocale: ['es_EC', 'en_US'],
+    locale: 'es_EC',
+    alternateLocale: ['fr_FR', 'en_US'],
     url: 'https://hotel-elandariego-test.netlify.app',
     siteName: 'Hotel El Andariego',
-    title: 'Hotel El Andariego | Votre refuge authentique à Otavalo, Ecuador',
+    title: 'Hotel El Andariego | Tu refugio auténtico en Otavalo, Ecuador',
     description:
-      "Au cœur des Andes équatoriennes, l'Hotel El Andariego vous accueille dans une ambiance chaleureuse et authentique. Idéal pour explorer le marché artisanal d'Otavalo, les lagunes et la culture kichwa.",
+      'En el corazón de los Andes ecuatorianos, el Hotel El Andariego te recibe con calidez y autenticidad. Ideal para explorar el mercado artesanal de Otavalo, las lagunas y la cultura kichwa.',
     images: [
       {
         url: 'https://hotel-elandariego-test.netlify.app/assets/common_area/hotel_building_view.webp',
         width: 1280,
         height: 853,
-        alt: 'Hotel El Andariego - Vue panoramique du hotel à Otavalo, Ecuador',
+        alt: 'Hotel El Andariego - Vista panorámica del hotel en Otavalo, Ecuador',
       },
     ],
   },
@@ -54,7 +56,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Hotel El Andariego | Otavalo, Ecuador',
     description:
-      "Hébergement authentique au cœur des Andes. Réservez votre chambre à Otavalo — du dortoir backpacker à la suite familiale.",
+      'Hospedaje auténtico en el corazón de los Andes. Reserva tu habitación en Otavalo — desde dormitorio backpacker hasta habitación familiar.',
     images: ['https://hotel-elandariego-test.netlify.app/assets/common_area/hotel_building_view.webp'],
   },
   robots: {
@@ -69,7 +71,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: 'https://hotelelandariego.com',
+    canonical: 'https://hotel-elandariego-test.netlify.app',
   },
 };
 
@@ -79,7 +81,7 @@ const jsonLd = {
   '@type': 'Hotel',
   name: 'Hotel El Andariego',
   description:
-    "Hébergement authentique andin au cœur d'Otavalo, Ecuador. Chambres doubles, triples, familiales et dortoirs pour backpackers.",
+    'Hospedaje auténtico andino en el corazón de Otavalo, Ecuador. Habitaciones dobles, triples, familiares y dormitorios para backpackers.',
   url: 'https://hotel-elandariego-test.netlify.app',
   image: 'https://hotel-elandariego-test.netlify.app/assets/common_area/hotel_building_view.webp',
   telephone: '+593995941029',
@@ -97,7 +99,7 @@ const jsonLd = {
   },
   priceRange: '$15–$85',
   currenciesAccepted: 'USD',
-  paymentAccepted: 'Cash, Bank Transfer',
+  paymentAccepted: 'Efectivo, Transferencia bancaria',
   checkinTime: '14:00',
   checkoutTime: '12:00',
   petsAllowed: true,
@@ -106,11 +108,11 @@ const jsonLd = {
     ratingValue: '3',
   },
   amenityFeature: [
-    { '@type': 'LocationFeatureSpecification', name: 'WiFi gratuit', value: true },
-    { '@type': 'LocationFeatureSpecification', name: 'Petit-déjeuner inclus', value: true },
-    { '@type': 'LocationFeatureSpecification', name: 'Rooftop panoramique', value: true },
-    { '@type': 'LocationFeatureSpecification', name: 'Restaurant', value: true },
-    { '@type': 'LocationFeatureSpecification', name: 'Réception 24h/24', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'WiFi gratis', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Desayuno incluido', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Terraza panorámica', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Restaurante', value: true },
+    { '@type': 'LocationFeatureSpecification', name: 'Recepción 24h', value: true },
   ],
   sameAs: [
     'https://www.instagram.com/andariegohotel',
@@ -124,7 +126,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr">
+    <html lang="es">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
