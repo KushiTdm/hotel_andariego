@@ -56,29 +56,29 @@ export function Contact({ whatsappMessage }: ContactProps) {
   ];
 
   return (
-    <section id="contact" className="py-24 px-4" style={{ backgroundColor: 'var(--cream)' }}>
+    <section id="contact" className="py-16 sm:py-20 md:py-24 px-4" style={{ backgroundColor: 'var(--cream)' }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader title="Contáctanos" />
 
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12">
           <div>
-            <div className="space-y-6 mb-10">
+            <div className="space-y-4 sm:space-y-6 mb-8 sm:mb-10">
               {contactInfo.map(({ icon: Icon, title, content }) => (
-                <div key={title} className="flex items-start gap-4">
+                <div key={title} className="flex items-start gap-3 sm:gap-4">
                   <div
-                    className="w-12 h-12 flex-shrink-0 flex items-center justify-center"
+                    className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center"
                     style={{ background: 'var(--terracotta)', borderRadius: '2px' }}
                   >
-                    <Icon className="w-5 h-5 text-white" />
+                    <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
                     <h3
-                      className="font-semibold mb-1"
+                      className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base"
                       style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
                     >
                       {title}
                     </h3>
-                    <p style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
+                    <p className="text-sm sm:text-base" style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}>
                       {content}
                     </p>
                   </div>
@@ -93,14 +93,14 @@ export function Contact({ whatsappMessage }: ContactProps) {
                   '_blank'
                 )
               }
-              className="group relative w-full py-4 font-semibold uppercase transition-all duration-300 overflow-hidden"
+              className="group relative w-full py-3 sm:py-4 font-semibold uppercase transition-all duration-300 overflow-hidden"
               style={{
                 background: 'var(--warm-brown)',
                 color: 'var(--cream)',
                 borderRadius: '2px',
                 fontFamily: "'Playfair Display', serif",
                 letterSpacing: '0.15em',
-                fontSize: '13px',
+                fontSize: '12px',
                 boxShadow: '0 4px 20px rgba(61,43,31,0.2)',
               }}
             >
@@ -115,7 +115,7 @@ export function Contact({ whatsappMessage }: ContactProps) {
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{ background: 'rgba(255,255,255,0.04)' }}
               />
-              <span className="relative flex items-center justify-center gap-3">
+              <span className="relative flex items-center justify-center gap-2 sm:gap-3">
                 {WhatsAppIcon}
                 Contactar por WhatsApp
               </span>
@@ -123,7 +123,7 @@ export function Contact({ whatsappMessage }: ContactProps) {
           </div>
 
           <div
-            className="h-96 md:h-full min-h-[400px] rounded-sm overflow-hidden shadow-2xl"
+            className="h-72 sm:h-80 md:h-full min-h-[300px] md:min-h-[400px] rounded-sm overflow-hidden shadow-2xl"
             style={{ border: '3px solid var(--cream-dark)' }}
           >
             <iframe

@@ -1,5 +1,7 @@
 'use client';
 
+import { useState, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { SectionHeader } from './SectionHeader';
 import { ActivityCard } from './ActivityCard';
 
@@ -67,15 +69,116 @@ const activities = [
 ];
 
 export function Activities() {
+  const [currentMobileSlide, setCurrentMobileSlide] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const nextMobileSlide = () => {
+    setCurrentMobileSlide((prev) => (prev + 1) % activities.length);
+  };
+
+  const prevMobileSlide = () => {
+    setCurrentMobileSlide((prev) => (prev - 1 + activities.length) % activities.length);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (diff > 50) {
+      nextMobileSlide();
+    } else if (diff < -50) {
+      prevMobileSlide();
+    }
+  };
+
   return (
-    <section id="activites" className="py-24 px-4" style={{ backgroundColor: 'var(--cream)' }}>
+    <section id="activites" className="py-16 sm:py-20 md:py-24 px-4" style={{ backgroundColor: 'var(--cream)' }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Qué explorar desde el hotel"
           subtitle="Sucre 10-07 y Colón, Otavalo — todo está al alcance de la mano"
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Mobile Carousel - visible only on small screens */}
+        <div className="sm:hidden relative">
+          <div
+            className="overflow-hidden"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+          >
+            <div
+              className="flex transition-transform duration-300 ease-out"
+              style={{
+                transform: `translateX(-${currentMobileSlide * 100}%)`,
+              }}
+            >
+              {activities.map((place) => (
+                <div key={place.name} className="w-full flex-shrink-0 px-1">
+                  <ActivityCard {...place} />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Navigation arrows */}
+          <button
+            onClick={prevMobileSlide}
+            className="absolute left-0 top-1/2 z-10 w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            style={{
+              background: 'var(--terracotta)',
+              color: 'white',
+              borderRadius: '50%',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+              transform: 'translateY(-50%)',
+            }}
+            aria-label="Précédent"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={nextMobileSlide}
+            className="absolute right-0 top-1/2 z-10 w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            style={{
+              background: 'var(--terracotta)',
+              color: 'white',
+              borderRadius: '50%',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+              transform: 'translateY(-50%)',
+            }}
+            aria-label="Suivant"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
+          {/* Mobile dots indicator */}
+          <div className="flex justify-center gap-1.5 mt-4">
+            {activities.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentMobileSlide(i)}
+                className="transition-all duration-300"
+                style={{
+                  width: currentMobileSlide === i ? '20px' : '8px',
+                  height: '8px',
+                  borderRadius: '4px',
+                  background: currentMobileSlide === i ? 'var(--terracotta)' : 'var(--cream-dark)',
+                }}
+                aria-label={`Aller à l'activité ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
+        {/* Tablet and Desktop Grid - hidden on mobile */}
+        <div className="hidden sm:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {activities.map((place) => (
             <ActivityCard key={place.name} {...place} />
           ))}

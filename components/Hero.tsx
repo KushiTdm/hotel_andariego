@@ -51,7 +51,7 @@ export function Hero({ whatsappMessage }: HeroProps) {
         </div>
 
         <h1
-          className="text-6xl md:text-8xl font-bold mb-4 tracking-tight fade-in-up delay-2"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold mb-3 sm:mb-4 tracking-tight fade-in-up delay-2"
           style={{
             fontFamily: "'Playfair Display', serif",
             textShadow: '0 2px 30px rgba(0,0,0,0.4)',
@@ -61,7 +61,7 @@ export function Hero({ whatsappMessage }: HeroProps) {
         </h1>
 
         <p
-          className="text-xl md:text-2xl mb-3 font-light italic fade-in-up delay-3"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl mb-2 sm:mb-3 font-light italic fade-in-up delay-3 px-4 sm:px-0"
           style={{
             fontFamily: "'Crimson Pro', serif",
             color: 'var(--ochre-light)',
@@ -72,7 +72,7 @@ export function Hero({ whatsappMessage }: HeroProps) {
         </p>
 
         <p
-          className="text-lg md:text-xl mb-10 max-w-3xl mx-auto leading-relaxed fade-in-up delay-4"
+          className="text-sm sm:text-base md:text-lg lg:text-xl mb-8 sm:mb-10 max-w-3xl mx-auto leading-relaxed fade-in-up delay-4 px-4 sm:px-6 md:px-0"
           style={{ color: 'rgba(245,239,224,0.88)', fontFamily: "'Crimson Pro', serif" }}
         >
           {hotelData.description}

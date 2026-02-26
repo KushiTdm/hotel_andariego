@@ -24,18 +24,18 @@ const transportServices = [
 
 export function Transport() {
   return (
-    <section className="py-24 px-4 andean-pattern" style={{ backgroundColor: 'var(--cream)' }}>
+    <section className="py-16 sm:py-20 md:py-24 px-4 andean-pattern" style={{ backgroundColor: 'var(--cream)' }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Servicio de Transporte"
           subtitle="Compañía de Transporte Turístico ANDARIEGOTUR"
         />
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid md:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
           {/* Image du Duster */}
-          <div className="relative">
+          <div className="relative order-2 md:order-1">
             <div
-              className="relative h-[400px] md:h-[480px] rounded-sm overflow-hidden shadow-2xl"
+              className="relative h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] rounded-sm overflow-hidden shadow-2xl"
             >
               <Image
                 src="/assets/activities/renault_duster_suv.webp"
@@ -55,29 +55,29 @@ export function Transport() {
               />
             </div>
             <div
-              className="absolute -bottom-4 -right-4 w-full h-full rounded-sm -z-10"
+              className="absolute -bottom-3 sm:-bottom-4 -right-3 sm:-right-4 w-full h-full rounded-sm -z-10 hidden sm:block"
               style={{ border: '3px solid var(--terracotta)', opacity: 0.3 }}
             />
           </div>
 
           {/* Contenu texte */}
-          <div>
-            <div className="flex items-center gap-3 mb-6">
+          <div className="order-1 md:order-2">
+            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
               <div
-                className="w-10 h-10 flex items-center justify-center"
+                className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
                 style={{ background: 'var(--terracotta)', borderRadius: '2px' }}
               >
-                <Car className="w-5 h-5 text-white" />
+                <Car className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
               <div>
                 <h3
-                  className="text-2xl font-bold"
+                  className="text-xl sm:text-2xl font-bold"
                   style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
                 >
                   ANDARIEGOTUR
                 </h3>
                 <p
-                  className="text-sm uppercase tracking-wider"
+                  className="text-xs sm:text-sm uppercase tracking-wider"
                   style={{ color: 'var(--terracotta)', fontFamily: "'Crimson Pro', serif" }}
                 >
                   Compañía de Transporte Turístico
@@ -86,7 +86,7 @@ export function Transport() {
             </div>
 
             <p
-              className="text-lg mb-8 leading-relaxed"
+              className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed"
               style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
             >
               Además del hospedaje, ofrecemos servicio de transporte profesional para que explores
@@ -94,28 +94,28 @@ export function Transport() {
               a cualquier destino del país.
             </p>
 
-            <div className="space-y-4 mb-8">
+            <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
               {transportServices.map((service) => (
                 <div
                   key={service.title}
-                  className="flex items-start gap-4 p-4 rounded-sm"
+                  className="flex items-start gap-3 sm:gap-4 p-3 sm:p-4 rounded-sm"
                   style={{ background: 'rgba(196,85,26,0.05)' }}
                 >
                   <div
-                    className="w-12 h-12 flex-shrink-0 flex items-center justify-center"
+                    className="w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0 flex items-center justify-center"
                     style={{ background: 'var(--terracotta)', borderRadius: '50%' }}
                   >
-                    <service.icon className="w-5 h-5 text-white" />
+                    <service.icon className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
                   </div>
                   <div>
                     <h4
-                      className="font-semibold mb-1"
+                      className="font-semibold mb-0.5 sm:mb-1 text-sm sm:text-base"
                       style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
                     >
                       {service.title}
                     </h4>
                     <p
-                      className="text-sm"
+                      className="text-xs sm:text-sm"
                       style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
                     >
                       {service.description}
@@ -126,13 +126,13 @@ export function Transport() {
             </div>
 
             <div
-              className="p-4 rounded-sm"
+              className="p-3 sm:p-4 rounded-sm"
               style={{ background: 'var(--cream-dark)', borderLeft: '4px solid var(--teal)' }}
             >
-              <div className="flex items-start gap-3">
-                <CheckCircle className="w-5 h-5 flex-shrink-0" style={{ color: 'var(--teal)' }} />
+              <div className="flex items-start gap-2 sm:gap-3">
+                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" style={{ color: 'var(--teal)' }} />
                 <p
-                  className="text-sm leading-relaxed"
+                  className="text-xs sm:text-sm leading-relaxed"
                   style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
                 >
                   <strong style={{ color: 'var(--warm-brown)' }}>Vehículo disponible:</strong> Renault

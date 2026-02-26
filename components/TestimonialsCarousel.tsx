@@ -85,20 +85,20 @@ export function TestimonialsCarousel() {
   };
 
   return (
-    <section className="py-24 px-4" style={{ backgroundColor: 'var(--warm-brown)' }}>
+    <section className="py-16 sm:py-20 md:py-24 px-4" style={{ backgroundColor: 'var(--warm-brown)' }}>
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
-        <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-4 mb-4">
-            <span style={{ color: 'var(--ochre-light)', fontSize: '20px' }}>◆</span>
-            <span style={{ color: 'var(--teal-light)', fontSize: '14px' }}>◆</span>
-            <span style={{ color: 'var(--terracotta-light)', fontSize: '20px' }}>◆</span>
+        <div className="text-center mb-10 sm:mb-12 md:mb-16 px-2">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 mb-3 sm:mb-4">
+            <span style={{ color: 'var(--ochre-light)', fontSize: '16px' }} className="sm:text-xl">◆</span>
+            <span style={{ color: 'var(--teal-light)', fontSize: '12px' }} className="sm:text-sm">◆</span>
+            <span style={{ color: 'var(--terracotta-light)', fontSize: '16px' }} className="sm:text-xl">◆</span>
           </div>
-          <h2 className="text-5xl font-bold mb-4"
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4"
             style={{ fontFamily: "'Playfair Display', serif", color: 'var(--cream)' }}>
             Ce que disent nos voyageurs
           </h2>
-          <p className="text-xl max-w-2xl mx-auto"
+          <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto"
             style={{ fontFamily: "'Crimson Pro', serif", color: 'rgba(245,239,224,0.7)' }}>
             Des expériences authentiques partagées par nos hôtes du monde entier
           </p>
@@ -106,10 +106,10 @@ export function TestimonialsCarousel() {
 
         {/* Carousel container */}
         <div className="relative">
-          {/* Navigation buttons */}
+          {/* Navigation buttons - hidden on mobile */}
           <button
             onClick={goToPrevious}
-            className="absolute left-0 top-1/2 z-10 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="hidden sm:flex absolute left-0 top-1/2 z-10 w-10 h-10 md:w-12 md:h-12 items-center justify-center transition-all duration-300 hover:scale-110"
             style={{ 
               background: 'var(--terracotta)', 
               color: 'white', 
@@ -119,11 +119,11 @@ export function TestimonialsCarousel() {
             }}
             aria-label="Précédent"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
           </button>
           <button
             onClick={goToNext}
-            className="absolute right-0 top-1/2 z-10 w-12 h-12 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="hidden sm:flex absolute right-0 top-1/2 z-10 w-10 h-10 md:w-12 md:h-12 items-center justify-center transition-all duration-300 hover:scale-110"
             style={{ 
               background: 'var(--terracotta)', 
               color: 'white', 
@@ -133,11 +133,11 @@ export function TestimonialsCarousel() {
             }}
             aria-label="Suivant"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
           </button>
 
           {/* Testimonial card */}
-          <div className="overflow-hidden mx-12">
+          <div className="overflow-hidden mx-0 sm:mx-10 md:mx-12">
             <div className="relative">
               {testimonials.map((testimonial, index) => (
                 <div
@@ -149,26 +149,26 @@ export function TestimonialsCarousel() {
                   }`}
                 >
                   <div 
-                    className="text-center p-10 rounded-sm"
+                    className="text-center p-5 sm:p-8 md:p-10 rounded-sm"
                     style={{
                       background: 'rgba(245,239,224,0.05)',
                       border: '1px solid rgba(212,137,42,0.2)',
                     }}
                   >
                     {/* Quote icon */}
-                    <div className="flex justify-center mb-6">
+                    <div className="flex justify-center mb-4 sm:mb-6">
                       <Quote 
-                        className="w-12 h-12" 
+                        className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12" 
                         style={{ color: 'var(--ochre)', opacity: 0.6 }} 
                       />
                     </div>
 
                     {/* Stars */}
-                    <div className="flex justify-center gap-1 mb-6">
+                    <div className="flex justify-center gap-0.5 sm:gap-1 mb-4 sm:mb-6">
                       {Array.from({ length: testimonial.rating }).map((_, i) => (
                         <Star 
                           key={i} 
-                          className="w-5 h-5 fill-current" 
+                          className="w-4 h-4 sm:w-5 sm:h-5 fill-current" 
                           style={{ color: 'var(--ochre-light)' }} 
                         />
                       ))}
@@ -176,14 +176,14 @@ export function TestimonialsCarousel() {
 
                     {/* Summary badge */}
                     <div 
-                      className="inline-block px-4 py-2 rounded-sm mb-6"
+                      className="inline-block px-3 sm:px-4 py-1.5 sm:py-2 rounded-sm mb-4 sm:mb-6"
                       style={{ 
                         background: 'rgba(196,85,26,0.2)',
                         border: '1px solid rgba(196,85,26,0.3)',
                       }}
                     >
                       <p 
-                        className="text-sm font-semibold"
+                        className="text-xs sm:text-sm font-semibold"
                         style={{ 
                           fontFamily: "'Playfair Display', serif", 
                           color: 'var(--ochre-light)' 
@@ -195,7 +195,7 @@ export function TestimonialsCarousel() {
 
                     {/* Testimonial text */}
                     <p 
-                      className="text-xl leading-relaxed max-w-3xl mx-auto mb-8"
+                      className="text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mb-6 sm:mb-8"
                       style={{ 
                         fontFamily: "'Crimson Pro', serif", 
                         color: 'rgba(245,239,224,0.9)',
@@ -206,10 +206,10 @@ export function TestimonialsCarousel() {
                     </p>
 
                     {/* Author */}
-                    <div className="flex items-center justify-center gap-3">
-                      <span className="text-2xl">{testimonial.flag}</span>
+                    <div className="flex items-center justify-center gap-2 sm:gap-3">
+                      <span className="text-xl sm:text-2xl">{testimonial.flag}</span>
                       <p 
-                        className="font-semibold text-lg"
+                        className="font-semibold text-base sm:text-lg"
                         style={{ 
                           fontFamily: "'Playfair Display', serif", 
                           color: 'var(--cream)' 
@@ -225,14 +225,14 @@ export function TestimonialsCarousel() {
           </div>
 
           {/* Dots navigation */}
-          <div className="flex justify-center gap-2 mt-10">
+          <div className="flex justify-center gap-1.5 sm:gap-2 mt-8 sm:mt-10">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
                 className="transition-all duration-300"
                 style={{ 
-                  width: currentIndex === index ? '24px' : '8px',
+                  width: currentIndex === index ? '20px' : '8px',
                   height: '8px',
                   borderRadius: '4px',
                   background: currentIndex === index 
@@ -246,42 +246,42 @@ export function TestimonialsCarousel() {
         </div>
 
         {/* Trust indicators */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 sm:mt-12 md:mt-16 text-center px-2">
           <div 
-            className="inline-flex items-center gap-6 px-8 py-4 rounded-sm"
+            className="inline-flex flex-col sm:flex-row items-center gap-4 sm:gap-6 px-6 sm:px-8 py-3 sm:py-4 rounded-sm"
             style={{ 
               background: 'rgba(245,239,224,0.05)',
               border: '1px solid rgba(212,137,42,0.15)',
             }}
           >
             <div className="flex items-center gap-2">
-              <Star className="w-5 h-5 fill-current" style={{ color: 'var(--ochre-light)' }} />
+              <Star className="w-4 h-4 sm:w-5 sm:h-5 fill-current" style={{ color: 'var(--ochre-light)' }} />
               <span 
-                className="font-semibold"
+                className="font-semibold text-sm sm:text-base"
                 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--cream)' }}
               >
                 4.9/5
               </span>
               <span 
-                className="text-sm"
+                className="text-xs sm:text-sm"
                 style={{ color: 'rgba(245,239,224,0.6)' }}
               >
                 note moyenne
               </span>
             </div>
             <div 
-              className="w-px h-6"
+              className="hidden sm:block w-px h-6"
               style={{ background: 'rgba(245,239,224,0.2)' }}
             />
             <div className="flex items-center gap-2">
               <span 
-                className="font-semibold"
+                className="font-semibold text-sm sm:text-base"
                 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--cream)' }}
               >
                 500+
               </span>
               <span 
-                className="text-sm"
+                className="text-xs sm:text-sm"
                 style={{ color: 'rgba(245,239,224,0.6)' }}
               >
                 voyageurs satisfaits
@@ -292,7 +292,7 @@ export function TestimonialsCarousel() {
       </div>
 
       {/* Bottom decorative band */}
-      <div className="mt-20 h-1 max-w-4xl mx-auto rounded-full" style={{
+      <div className="mt-12 sm:mt-16 md:mt-20 h-1 max-w-4xl mx-auto rounded-full" style={{
         background: 'repeating-linear-gradient(90deg, var(--terracotta) 0px, var(--terracotta) 16px, var(--ochre) 16px, var(--ochre) 32px, var(--teal-light) 32px, var(--teal-light) 48px, var(--ochre) 48px, var(--ochre) 64px)'
       }} />
     </section>

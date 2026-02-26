@@ -129,7 +129,7 @@ export function GalleryStrip() {
   return (
     <section
       ref={sectionRef}
-      className="py-16 px-4 relative overflow-hidden"
+      className="py-12 sm:py-16 px-4 relative overflow-hidden"
       style={{ backgroundColor: 'var(--warm-brown)' }}
     >
       {/* Subtle noise texture */}
@@ -143,21 +143,21 @@ export function GalleryStrip() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Header */}
-        <div className="flex items-center justify-center gap-5 mb-8">
+        <div className="flex items-center justify-center gap-3 sm:gap-5 mb-6 sm:mb-8">
           <div
-            className="h-px w-16"
+            className="h-px w-8 sm:w-12 md:w-16"
             style={{
               background: 'repeating-linear-gradient(90deg, var(--terracotta) 0, var(--terracotta) 6px, var(--ochre) 6px, var(--ochre) 12px)',
             }}
           />
           <p
-            className="text-xs uppercase tracking-[0.35em]"
+            className="text-[10px] sm:text-xs uppercase tracking-[0.25em] sm:tracking-[0.35em]"
             style={{ color: 'var(--ochre-light)', fontFamily: "'Crimson Pro', serif" }}
           >
             Otavalo · Imbabura · Ecuador
           </p>
           <div
-            className="h-px w-16"
+            className="h-px w-8 sm:w-12 md:w-16"
             style={{
               background: 'repeating-linear-gradient(90deg, var(--ochre) 0, var(--ochre) 6px, var(--terracotta) 6px, var(--terracotta) 12px)',
             }}
@@ -165,7 +165,7 @@ export function GalleryStrip() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
           {slots.map((slot, i) => {
             const isExiting = slot.phase === 'exiting';
             const isEntering = slot.phase === 'entering';
@@ -176,7 +176,7 @@ export function GalleryStrip() {
                 className="gallery-cell relative overflow-hidden group"
                 style={{
                   borderRadius: '2px',
-                  height: '256px',
+                  height: '180px',
                   // Stagger reveal
                   opacity: revealed[i] ? 1 : 0,
                   transform: revealed[i] ? 'translateY(0)' : 'translateY(28px)',

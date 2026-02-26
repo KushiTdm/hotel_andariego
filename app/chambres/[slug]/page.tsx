@@ -87,23 +87,23 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
         }}
       />
 
-      <div className="max-w-7xl mx-auto px-4 py-10">
+      <div className="max-w-7xl mx-auto px-4 py-6 sm:py-8 md:py-10">
         <Link href="/#chambres">
           <button
-            className="flex items-center gap-2 mb-10 text-sm uppercase tracking-wider transition-opacity hover:opacity-70"
+            className="flex items-center gap-2 mb-6 sm:mb-8 md:mb-10 text-xs sm:text-sm uppercase tracking-wider transition-opacity hover:opacity-70"
             style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--terracotta)' }}
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
             Volver a habitaciones
           </button>
         </Link>
 
-        <div className="grid lg:grid-cols-3 gap-10">
+        <div className="grid lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {/* Colonne gauche : images + infos */}
           <div className="lg:col-span-2">
             {/* Image principale */}
             <div
-              className="relative h-[400px] md:h-[520px] overflow-hidden mb-4 shadow-2xl"
+              className="relative h-[280px] sm:h-[350px] md:h-[400px] lg:h-[520px] overflow-hidden mb-3 sm:mb-4 shadow-2xl"
               style={{ borderRadius: '2px' }}
             >
               <Image
@@ -123,16 +123,16 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
             </div>
 
             {/* Miniatures */}
-            <div className="flex gap-3 mb-10 flex-wrap">
+            <div className="flex gap-2 sm:gap-3 mb-8 sm:mb-10 flex-wrap">
               {allImages.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => setCurrentImage(index)}
-                  className="relative h-20 w-28 flex-shrink-0 overflow-hidden transition-all duration-300"
+                  className="relative h-16 w-20 sm:h-20 sm:w-28 flex-shrink-0 overflow-hidden transition-all duration-300"
                   style={{
                     borderRadius: '2px',
                     outline:
-                      currentImage === index ? '3px solid var(--terracotta)' : '3px solid transparent',
+                      currentImage === index ? '2px sm:3px solid var(--terracotta)' : '2px sm:3px solid transparent',
                     opacity: currentImage === index ? 1 : 0.55,
                   }}
                 >
@@ -150,7 +150,7 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
 
             {/* Carte description */}
             <div
-              className="p-8 mb-8"
+              className="p-5 sm:p-6 md:p-8 mb-6 sm:mb-8"
               style={{
                 background: 'white',
                 boxShadow: '0 2px 20px rgba(61,43,31,0.08)',
@@ -158,57 +158,58 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
                 borderTop: '4px solid var(--terracotta)',
               }}
             >
-              <div className="flex items-center gap-3 mb-2">
-                <span className="w-6 h-0.5" style={{ background: 'var(--terracotta)' }} />
+              <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                <span className="w-4 sm:w-6 h-0.5" style={{ background: 'var(--terracotta)' }} />
                 <span
-                  className="text-xs uppercase tracking-[0.3em]"
+                  className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.3em]"
                   style={{ color: 'var(--terracotta)', fontFamily: "'Crimson Pro', serif" }}
                 >
                   Hotel El Andariego · Otavalo
                 </span>
               </div>
               <h1
-                className="text-4xl font-bold mb-4"
+                className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4"
                 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
               >
                 {room.type}
               </h1>
               <div
-                className="flex items-center gap-2 mb-6 text-sm"
+                className="flex items-center gap-2 mb-4 sm:mb-6 text-xs sm:text-sm"
                 style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}
               >
-                <Users className="w-4 h-4" />
+                <Users className="w-3 h-3 sm:w-4 sm:h-4" />
                 <span>
                   Hasta {room.capacity} persona{room.capacity > 1 ? 's' : ''}
                 </span>
               </div>
               <p
-                className="text-lg leading-relaxed mb-8"
+                className="text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8"
                 style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
               >
                 {room.description}
               </p>
-              <div style={{ borderTop: '1px solid var(--cream-dark)', paddingTop: '2rem' }}>
+              <div style={{ borderTop: '1px solid var(--cream-dark)', paddingTop: '1.5rem sm:2rem' }}>
                 <h2
-                  className="text-2xl font-semibold mb-6"
+                  className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-6"
                   style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
                 >
                   Equipamiento incluido
                 </h2>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4">
                   {room.amenities.map((amenity) => {
                     const info = amenityIcons[amenity];
                     if (!info) return null;
                     const Icon = info.icon;
                     return (
-                      <div key={amenity} className="flex items-center gap-3">
+                      <div key={amenity} className="flex items-center gap-2 sm:gap-3">
                         <div
-                          className="w-10 h-10 flex items-center justify-center flex-shrink-0"
+                          className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center flex-shrink-0"
                           style={{ background: 'rgba(196,85,26,0.1)', borderRadius: '2px' }}
                         >
-                          <Icon className="w-5 h-5" style={{ color: 'var(--terracotta)' }} />
+                          <Icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: 'var(--terracotta)' }} />
                         </div>
                         <span
+                          className="text-xs sm:text-sm md:text-base"
                           style={{
                             fontFamily: "'Crimson Pro', serif",
                             color: 'var(--warm-brown-light)',
@@ -225,7 +226,7 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
 
             {/* Carte politique */}
             <div
-              className="p-8"
+              className="p-5 sm:p-6 md:p-8"
               style={{
                 background: 'white',
                 boxShadow: '0 2px 20px rgba(61,43,31,0.08)',
@@ -234,7 +235,7 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
               }}
             >
               <h2
-                className="text-2xl font-semibold mb-5"
+                className="text-xl sm:text-2xl font-semibold mb-4 sm:mb-5"
                 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
               >
                 Información importante
@@ -268,7 +269,7 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
           {/* Colonne droite : réservation */}
           <div className="lg:col-span-1">
             <div
-              className="sticky top-8 p-7 shadow-2xl"
+              className="sticky top-6 sm:top-8 p-5 sm:p-6 md:p-7 shadow-2xl"
               style={{
                 background: 'white',
                 borderRadius: '2px',
@@ -276,7 +277,7 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
               }}
             >
               <h3
-                className="text-2xl font-bold mb-6"
+                className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6"
                 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
               >
                 Reservar esta habitación

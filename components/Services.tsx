@@ -20,7 +20,7 @@ const iconMap: Record<string, any> = {
 
 export function Services() {
   return (
-    <section className="py-24 px-4 andean-pattern" style={{ backgroundColor: 'var(--cream-dark)' }}>
+    <section className="py-16 sm:py-20 md:py-24 px-4 andean-pattern" style={{ backgroundColor: 'var(--cream-dark)' }}>
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Servicios & Equipamiento"
@@ -28,13 +28,13 @@ export function Services() {
           colorOrder="teal"
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {hotelData.services.map((service) => {
             const Icon = iconMap[service.icon] || Star;
             return (
               <div
                 key={service.id}
-                className="card-lift text-center p-7 rounded-sm"
+                className="card-lift text-center p-4 sm:p-5 md:p-7 rounded-sm"
                 style={{
                   background: 'var(--cream)',
                   borderTop: '3px solid var(--terracotta)',
@@ -42,19 +42,19 @@ export function Services() {
                 }}
               >
                 <div
-                  className="w-14 h-14 flex items-center justify-center mx-auto mb-4"
+                  className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 flex items-center justify-center mx-auto mb-3 sm:mb-4"
                   style={{ background: 'var(--terracotta)', borderRadius: '50%' }}
                 >
-                  <Icon className="w-7 h-7 text-white" />
+                  <Icon className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 text-white" />
                 </div>
                 <h3
-                  className="font-semibold mb-2"
+                  className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base"
                   style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
                 >
                   {service.name}
                 </h3>
                 <p
-                  className="text-sm leading-relaxed"
+                  className="text-xs sm:text-sm leading-relaxed hidden sm:block"
                   style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
                 >
                   {service.description}

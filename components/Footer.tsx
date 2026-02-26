@@ -17,11 +17,11 @@ export function Footer() {
       style={{ background: 'var(--warm-brown)', color: 'var(--cream)' }}
     >
       <div className="max-w-7xl mx-auto px-4 pb-10">
-        <div className="grid md:grid-cols-4 gap-10 mb-10">
-          <div>
-            <div className="flex items-center gap-4 mb-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mb-8 sm:mb-10">
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
               <div
-                className="relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0"
+                className="relative w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-full overflow-hidden flex-shrink-0"
                 style={{ background: 'var(--cream)', boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }}
               >
                 <Image
@@ -35,13 +35,13 @@ export function Footer() {
               </div>
               <div>
                 <h3
-                  className="text-2xl font-bold leading-tight"
+                  className="text-lg sm:text-xl md:text-2xl font-bold leading-tight"
                   style={{ fontFamily: "'Playfair Display', serif", color: 'var(--ochre-light)' }}
                 >
                   {hotelData.name}
                 </h3>
                 <p
-                  className="italic text-sm"
+                  className="italic text-xs sm:text-sm"
                   style={{ fontFamily: "'Crimson Pro', serif", color: 'rgba(245,239,224,0.7)' }}
                 >
                   {hotelData.tagline}
@@ -49,7 +49,7 @@ export function Footer() {
               </div>
             </div>
             <p
-              className="text-sm mt-3"
+              className="text-xs sm:text-sm mt-2 sm:mt-3"
               style={{ color: 'rgba(245,239,224,0.5)', fontFamily: "'Crimson Pro', serif" }}
             >
               {hotelData.address.street}
@@ -60,13 +60,13 @@ export function Footer() {
 
           <div>
             <h4
-              className="font-semibold mb-4 uppercase tracking-wider text-sm"
+              className="font-semibold mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
               style={{ color: 'var(--ochre-light)', fontFamily: "'Playfair Display', serif" }}
             >
               Información
             </h4>
             <ul
-              className="space-y-2 text-sm"
+              className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm"
               style={{ fontFamily: "'Crimson Pro', serif", color: 'rgba(245,239,224,0.7)' }}
             >
               <li>• {hotelData.pets}</li>
@@ -77,17 +77,17 @@ export function Footer() {
 
           <div>
             <h4
-              className="font-semibold mb-4 uppercase tracking-wider text-sm"
+              className="font-semibold mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
               style={{ color: 'var(--ochre-light)', fontFamily: "'Playfair Display', serif" }}
             >
               Horarios
             </h4>
             <p
-              className="text-sm"
+              className="text-xs sm:text-sm"
               style={{
                 fontFamily: "'Crimson Pro', serif",
                 color: 'rgba(245,239,224,0.7)',
-                lineHeight: '2',
+                lineHeight: '1.8',
               }}
             >
               Recepción abierta 24h
@@ -100,37 +100,37 @@ export function Footer() {
 
           <div>
             <h4
-              className="font-semibold mb-4 uppercase tracking-wider text-sm"
+              className="font-semibold mb-3 sm:mb-4 uppercase tracking-wider text-xs sm:text-sm"
               style={{ color: 'var(--ochre-light)', fontFamily: "'Playfair Display', serif" }}
             >
               Síguenos
             </h4>
-            <div className="flex gap-3">
+            <div className="flex gap-2 sm:gap-3">
               <a
                 href={hotelData.socialMedia.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
                 style={{ background: 'var(--terracotta)', color: 'var(--cream)' }}
                 aria-label="Instagram"
               >
-                <Instagram className="w-5 h-5" />
+                <Instagram className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 href={hotelData.socialMedia.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
                 style={{ background: 'var(--terracotta)', color: 'var(--cream)' }}
                 aria-label="Facebook"
               >
-                <Facebook className="w-5 h-5" />
+                <Facebook className="w-4 h-4 sm:w-5 sm:h-5" />
               </a>
               <a
                 href={hotelData.socialMedia.tiktok}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
                 style={{ background: 'var(--terracotta)', color: 'var(--cream)' }}
                 aria-label="TikTok"
               >

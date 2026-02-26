@@ -35,7 +35,7 @@ export function ActivityCard({
       }}
     >
       {/* Image */}
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-44 sm:h-48 md:h-52 overflow-hidden">
         <Image
           src={image}
           alt={imageAlt}
@@ -57,17 +57,17 @@ export function ActivityCard({
       </div>
 
       {/* Content */}
-      <div className="p-5">
+      <div className="p-4 sm:p-5">
         {/* Accent line */}
-        <div className="w-8 h-0.5 mb-3" style={{ background: color }} />
+        <div className="w-8 h-0.5 mb-2 sm:mb-3" style={{ background: color }} />
         <h3
-          className="text-xl font-bold leading-tight mb-2"
+          className="text-lg sm:text-xl font-bold leading-tight mb-1.5 sm:mb-2"
           style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
         >
           {name}
         </h3>
         <p
-          className="text-sm mb-4 leading-relaxed"
+          className="text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed"
           style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
         >
           {description}
@@ -77,21 +77,21 @@ export function ActivityCard({
         <div className="flex flex-wrap gap-2">
           {walk && (
             <div
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm"
+              className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-sm"
               style={{
                 background: 'rgba(196,85,26,0.08)',
                 border: '1px solid rgba(196,85,26,0.15)',
               }}
             >
-              <span className="text-base">🚶</span>
+              <span className="text-sm sm:text-base">🚶</span>
               <span
-                className="text-sm font-semibold"
+                className="text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--terracotta)' }}
               >
                 {walk}
               </span>
               <span
-                className="text-xs"
+                className="text-[10px] sm:text-xs"
                 style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
               >
                 a pie
@@ -100,21 +100,21 @@ export function ActivityCard({
           )}
           {car && (
             <div
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm"
+              className="flex items-center gap-1 sm:gap-1.5 px-2 sm:px-3 py-1 sm:py-1.5 rounded-sm"
               style={{
                 background: 'rgba(42,123,111,0.08)',
                 border: '1px solid rgba(42,123,111,0.15)',
               }}
             >
-              <span className="text-base">🚗</span>
+              <span className="text-sm sm:text-base">🚗</span>
               <span
-                className="text-sm font-semibold"
+                className="text-xs sm:text-sm font-semibold"
                 style={{ fontFamily: "'Playfair Display', serif", color: 'var(--teal)' }}
               >
                 {car}
               </span>
               <span
-                className="text-xs"
+                className="text-[10px] sm:text-xs"
                 style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
               >
                 en carro
