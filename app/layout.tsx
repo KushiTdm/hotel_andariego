@@ -4,7 +4,7 @@ import { LoadingScreen } from '@/components/LoadingScreen';
 import { LanguageProvider } from '@/lib/language-context';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hotelelandariego.com'),
+  metadataBase: new URL('https://hotel-elandariego-test.netlify.app'),
   title: {
     default: 'Hotel El Andariego | Otavalo, Ecuador — Hébergement Authentique Andin',
     template: '%s | Hotel El Andariego — Otavalo',
@@ -36,17 +36,17 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'fr_FR',
     alternateLocale: ['es_EC', 'en_US'],
-    url: 'https://hotelelandariego.com',
+    url: 'https://hotel-elandariego-test.netlify.app',
     siteName: 'Hotel El Andariego',
     title: 'Hotel El Andariego | Votre refuge authentique à Otavalo, Ecuador',
     description:
       "Au cœur des Andes équatoriennes, l'Hotel El Andariego vous accueille dans une ambiance chaleureuse et authentique. Idéal pour explorer le marché artisanal d'Otavalo, les lagunes et la culture kichwa.",
     images: [
       {
-        url: 'https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg',
-        width: 1200,
-        height: 630,
-        alt: 'Hotel El Andariego - Otavalo, Ecuador',
+        url: 'https://hotel-elandariego-test.netlify.app/assets/common_area/hotel_building_view.webp',
+        width: 1280,
+        height: 853,
+        alt: 'Hotel El Andariego - Vue panoramique du hotel à Otavalo, Ecuador',
       },
     ],
   },
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     title: 'Hotel El Andariego | Otavalo, Ecuador',
     description:
       "Hébergement authentique au cœur des Andes. Réservez votre chambre à Otavalo — du dortoir backpacker à la suite familiale.",
-    images: ['https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg'],
+    images: ['https://hotel-elandariego-test.netlify.app/assets/common_area/hotel_building_view.webp'],
   },
   robots: {
     index: true,
@@ -80,7 +80,8 @@ const jsonLd = {
   name: 'Hotel El Andariego',
   description:
     "Hébergement authentique andin au cœur d'Otavalo, Ecuador. Chambres doubles, triples, familiales et dortoirs pour backpackers.",
-  url: 'https://hotelelandariego.com',
+  url: 'https://hotel-elandariego-test.netlify.app',
+  image: 'https://hotel-elandariego-test.netlify.app/assets/common_area/hotel_building_view.webp',
   telephone: '+593995941029',
   email: 'hotelelandariegoecuador@gmail.com',
   address: {

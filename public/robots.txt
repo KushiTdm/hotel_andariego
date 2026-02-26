@@ -1,0 +1,9 @@
+# Robots.txt for Hotel El Andariego
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://hotel-elandariego-test.netlify.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
