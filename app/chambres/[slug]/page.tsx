@@ -10,12 +10,6 @@ import { WhatsAppButton } from '@/components/WhatsAppButton';
 import { RangePicker } from '@/components/RangePicker';
 import hotelData from '@/data/hotel.json';
 
-// Image salle de bain commune à toutes les chambres
-const BATHROOM_IMAGE = {
-  src: '/assets/rooms/bathroom.webp',
-  alt: 'Baño privado — Hotel El Andariego Otavalo',
-};
-
 const amenityIcons: Record<string, { icon: any; label: string }> = {
   wifi: { icon: Wifi, label: 'WiFi gratis' },
   tv: { icon: Tv, label: 'Televisión' },
@@ -58,8 +52,8 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
     );
   }
 
-  // Images de la chambre + salle de bain en dernier
-  const allImages = [...room.images, BATHROOM_IMAGE];
+  // Images de la chambre
+  const allImages = room.images;
 
   const nights =
     checkIn && checkOut
@@ -126,23 +120,6 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
                     'repeating-linear-gradient(90deg, #C4551A 0, #C4551A 12px, #D4892A 12px, #D4892A 24px, #2A7B6F 24px, #2A7B6F 36px, #D4892A 36px, #D4892A 48px)',
                 }}
               />
-              {/* Badge salle de bain */}
-              {currentImage === allImages.length - 1 && (
-                <div
-                  className="absolute top-5 left-5 flex items-center gap-1.5 px-3 py-1.5"
-                  style={{
-                    background: 'rgba(42,123,111,0.92)',
-                    color: 'white',
-                    borderRadius: '2px',
-                    fontSize: '12px',
-                    fontFamily: "'Crimson Pro', serif",
-                    letterSpacing: '0.05em',
-                  }}
-                >
-                  <ShowerHead className="w-3.5 h-3.5" />
-                  Baño privado
-                </div>
-              )}
             </div>
 
             {/* Miniatures */}
@@ -167,20 +144,6 @@ export default function RoomPage({ params }: { params: Promise<{ slug: string }>
                     loading="lazy"
                     sizes="112px"
                   />
-                  {index === allImages.length - 1 && (
-                    <div className="absolute inset-0 flex items-end justify-center pb-1">
-                      <span
-                        className="text-white text-[9px] px-1.5 py-0.5"
-                        style={{
-                          background: 'rgba(42,123,111,0.85)',
-                          fontFamily: "'Crimson Pro', serif",
-                          borderRadius: '1px',
-                        }}
-                      >
-                        Baño
-                      </span>
-                    </div>
-                  )}
                 </button>
               ))}
             </div>
