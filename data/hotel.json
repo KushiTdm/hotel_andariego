@@ -82,25 +82,25 @@
       "id": "rooftop",
       "name": "Terraza panorámica",
       "icon": "Mountain",
-      "description": "Terraza con vista a los Andes"
+      "description": "Terraza con vista a las montañas."
     },
     {
       "id": "parking",
       "name": "Estacionamiento",
       "icon": "ParkingCircle",
-      "description": "Estacionamiento público cercano (de pago)"
+      "description": "Estacionamiento al frente del hotel (de pago)"
     },
     {
       "id": "laundry",
       "name": "Lavandería",
       "icon": "Shirt",
-      "description": "Servicio de lavandería cercano (de pago)"
+      "description": "Servicio de lavandería (de pago)"
     }
   ],
   "pets": "Pequeñas mascotas aceptadas",
   "accessibility": "No accesible para personas con movilidad reducida",
   "cancellationPolicy": "Cancelación gratuita hasta 48 horas antes de la llegada",
-  "paymentMethods": ["Transferencia bancaria", "Efectivo"],
+  "paymentMethods": ["Transferencia bancaria", "efectivo"],
   "socialMedia": {
     "instagram": "https://www.instagram.com/andariegohotel?igsh=MTJyaWF0dndvcjVkOQ==",
     "facebook": "https://www.facebook.com/share/189ii6CSaR/?mibextid=wwXIfr",
@@ -159,7 +159,7 @@
       "slug": "matrimonial",
       "quantity": 7,
       "capacity": 2,
-      "description": "Habitación cómoda con cama matrimonial, ideal para parejas. Decoración cálida con los colores de Ecuador.",
+      "description": "Habitación cómoda con cama matrimonial, ideal para parejas. Su decoración incorpora detalles en colores tradicionales que aportan identidad y armonía al espacio.",
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
         {
@@ -200,7 +200,7 @@
       "type": "Habitación Quíntuple",
       "slug": "quintuple",
       "quantity": 1,
-      "capacity": 5,
+      "capacity": 4,
       "description": "Nuestra habitación más grande, perfecta para familias numerosas o grupos de amigos.",
       "amenities": ["wifi", "tv", "shower"],
       "images": [
@@ -213,7 +213,7 @@
           "alt": "Espacio amplio para familias en la habitación quíntuple"
         },
         {
-          "src": "/assets/rooms/bathroom_3.webp",
+          "src": "/assets/rooms/bathroom_2.webp",
           "alt": "Baño privado en la habitación quíntuple del Hotel El Andariego"
         }
       ]
@@ -224,7 +224,7 @@
       "slug": "dormitorio-compartido",
       "quantity": 1,
       "capacity": 8,
-      "description": "Dormitorio acogedor para mochileros, con literas y casilleros seguros. Perfecto para conocer otros viajeros.",
+      "description": "Ideal para parejas, familias y mochileros.",
       "amenities": ["wifi", "shower"],
       "images": [
         {
@@ -236,7 +236,7 @@
           "alt": "Ambiente social del dormitorio compartido andino"
         },
         {
-          "src": "/assets/rooms/bathroom_3.webp",
+          "src": "/assets/rooms/bathroom_2.webp",
           "alt": "Baño privado en el dormitorio compartido del Hotel El Andariego"
         }
       ]

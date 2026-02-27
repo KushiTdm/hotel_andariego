@@ -54,7 +54,7 @@ export function Rooms() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Nuestras Habitaciones"
-          subtitle="Desde dormitorios acogedores hasta habitaciones familiares espaciosas, encuentra tu nido andino ideal"
+          subtitle="DeEspacios pensados para viajeros individuales, escapadas en pareja, estadías familiares o experiencias compartidas."
         />
 
         {/* Mobile Carousel - visible only on small screens */}

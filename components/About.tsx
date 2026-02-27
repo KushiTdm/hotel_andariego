@@ -7,8 +7,8 @@ import hotelData from '@/data/hotel.json';
 const aboutFeatures = [
   { icon: CheckCircle, title: 'Ubicación céntrica', sub: 'A 2 min del mercado' },
   { icon: Award, title: 'Servicio auténtico', sub: 'Equipo local 24/7' },
-  { icon: Star, title: 'Vista panorámica', sub: 'Terraza hacia los Andes' },
-  { icon: Users, title: 'Para todos', sub: 'Parejas a mochileros' },
+  { icon: Star, title: 'Vista panorámica', sub: 'Terraza con vista a las montañas' },
+  { icon: Users, title: 'Para todo tipo de viajeros', sub: 'Ideal para parejas, familias y mochileros' },
 ];
 
 export function About() {
@@ -57,7 +57,7 @@ export function About() {
               className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 leading-tight"
               style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
             >
-              Bienvenido a
+              Bienvenidos a
               <br />
               <em style={{ color: 'var(--terracotta)' }}>Otavalo</em>
             </h2>
@@ -66,16 +66,25 @@ export function About() {
               className="text-base sm:text-lg mb-4 sm:mb-5 leading-relaxed"
               style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
             >
-              Situado en el corazón de Otavalo, capital artesanal de los Andes, nuestro hotel es el
-              punto de partida ideal para explorar el famoso mercado kichwa, las lagunas andinas y
-              las comunidades indígenas con tradiciones milenarias.
+              Situado en el corazón de Otavalo, capital artesanal del Ecuador, nuestro hotel es el
+              punto de partida ideal para descubrir la riqueza cultural de la ciudad, sus lagunas y
+              las comunidades indígenas que conservan tradiciones milenarias.
+            </p>
+            <p
+              className="text-base sm:text-lg mb-4 sm:mb-5 leading-relaxed"
+              style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
+            >
+              Desde 2016 ofrecemos un espacio acogedor que combina comodidad y ubicación estratégica,
+              a pocos pasos de la emblemática Plaza de los Ponchos, donde cada sábado se vive la feria
+              artesanal más grande de Sudamérica.
             </p>
             <p
               className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed"
               style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
             >
-              Con {hotelData.info.rooms} habitaciones distribuidas en tres pisos, recibimos hasta{' '}
-              {hotelData.info.capacity} viajeros en un ambiente cálido que refleja el alma andina.
+              Contamos con {hotelData.info.rooms} habitaciones distribuidas en tres pisos, con capacidad
+              para recibir hasta {hotelData.info.capacity} viajeros en un ambiente cálido que refleja
+              la identidad local.
             </p>
 
             <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-10">

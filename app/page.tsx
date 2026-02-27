@@ -30,7 +30,7 @@ export default function Home() {
 
       <AndeanBand
         variant="textile"
-        text="Otavalo, donde los hilos de algodón tejen las leyendas de los Andes desde hace milenios"
+        text="Otavalo, donde cada hilo cuenta una historia y cada tejido guarda una tradición."
       />
 
       <Rooms />

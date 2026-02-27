@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { SectionHeader } from './SectionHeader';
-import { Car, Plane, Building2, CheckCircle } from 'lucide-react';
+import { Car, Plane, Building2 } from 'lucide-react';
 
 const transportServices = [
   {
@@ -13,7 +13,7 @@ const transportServices = [
   {
     icon: Plane,
     title: 'Traslados al aeropuerto',
-    description: 'Recogida y entrega en el aeropuerto',
+    description: 'Traslado confiable y seguro desde y hacia el aeropuerto.',
   },
   {
     icon: Building2,
@@ -62,26 +62,15 @@ export function Transport() {
 
           {/* Contenu texte */}
           <div className="order-1 md:order-2">
-            <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-              <div
-                className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center"
-                style={{ background: 'var(--terracotta)', borderRadius: '2px' }}
-              >
-                <Car className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
-              </div>
-              <div>
-                <h3
-                  className="text-xl sm:text-2xl font-bold"
-                  style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
-                >
-                  ANDARIEGOTUR
-                </h3>
-                <p
-                  className="text-xs sm:text-sm uppercase tracking-wider"
-                  style={{ color: 'var(--terracotta)', fontFamily: "'Crimson Pro', serif" }}
-                >
-                  Compañía de Transporte Turístico
-                </p>
+            <div className="flex justify-center mb-4 sm:mb-6">
+              <div className="flex items-center justify-center">
+                <Image
+                  src="/assets/logo/logo_andariegotour.jpg"
+                  alt="Logo ANDARIEGOTUR"
+                  width={168}
+                  height={168}
+                  className="object-contain"
+                />
               </div>
             </div>
 
@@ -125,21 +114,6 @@ export function Transport() {
               ))}
             </div>
 
-            <div
-              className="p-3 sm:p-4 rounded-sm"
-              style={{ background: 'var(--cream-dark)', borderLeft: '4px solid var(--teal)' }}
-            >
-              <div className="flex items-start gap-2 sm:gap-3">
-                <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" style={{ color: 'var(--teal)' }} />
-                <p
-                  className="text-xs sm:text-sm leading-relaxed"
-                  style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
-                >
-                  <strong style={{ color: 'var(--warm-brown)' }}>Vehículo disponible:</strong> Renault
-                  Duster cómodo y seguro, ideal para recorrer los Andes ecuatorianos.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

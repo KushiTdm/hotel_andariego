@@ -24,7 +24,7 @@ export function Services() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Servicios & Equipamiento"
-          subtitle="Todo para hacer tu estadía andina inolvidable"
+          subtitle="Comodidad y detalles que harán de tu visita una experiencia memorable."
           colorOrder="teal"
         />
 

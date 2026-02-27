@@ -4,18 +4,18 @@ import Image from 'next/image';
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 const allCommonAreaPhotos = [
-  { src: '/assets/common_area/bibliotheca_sofa.webp', alt: 'Biblioteca y espacio de relax en el Hotel El Andariego' },
-  { src: '/assets/common_area/colored_stairs.webp', alt: 'Escalera colorida andina en el Hotel El Andariego Otavalo' },
-  { src: '/assets/common_area/common_path.webp', alt: 'Pasillo común del Hotel El Andariego' },
-  { src: '/assets/common_area/common_space_with_sofa.webp', alt: 'Espacio común cómodo con sofá en el hotel Otavalo' },
-  { src: '/assets/common_area/entry_desk_sofa.webp', alt: 'Recepción con sofá en el Hotel El Andariego' },
-  { src: '/assets/common_area/hotel_building.webp', alt: 'Fachada del Hotel El Andariego en Otavalo Ecuador' },
-  { src: '/assets/common_area/kitchen.webp', alt: 'Cocina equipada a disposición de los huéspedes' },
-  { src: '/assets/common_area/reception.webp', alt: 'Área de recepción del hotel Otavalo' },
-  { src: '/assets/common_area/salon.webp', alt: 'Salón del Hotel El Andariego' },
-  { src: '/assets/common_area/sofa_table.webp', alt: 'Sala de estar con mesa en el hotel Otavalo' },
-  { src: '/assets/common_area/table_bar.webp', alt: 'Mesa de bar del Hotel El Andariego' },
-  { src: '/assets/common_area/terraza.webp', alt: 'Terraza panorámica del hotel en Otavalo' },
+  { src: '/assets/common_area/bibliotheca_sofa.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/colored_stairs.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/common_path.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/common_space_with_sofa.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/entry_desk_sofa.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/hotel_building.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/kitchen.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/reception.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/salon.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/sofa_table.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/table_bar.webp', alt: 'hotel el Andariego' },
+  { src: '/assets/common_area/terraza.webp', alt: 'hotel el Andariego' },
 ];
 
 function shuffleArray<T>(array: T[]): T[] {

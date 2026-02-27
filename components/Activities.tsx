@@ -103,7 +103,7 @@ export function Activities() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Qué explorar desde el hotel"
-          subtitle="Sucre 10-07 y Colón, Otavalo — todo está al alcance de la mano"
+          subtitle="Sucre 10-07 y Colón — Tu experiencia en Otavalo comienza aquí."
         />
 
         {/* Mobile Carousel - visible only on small screens */}
