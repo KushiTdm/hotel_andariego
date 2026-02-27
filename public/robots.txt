@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://hotel-elandariego-test.netlify.app/sitemap.xml
+Sitemap: https://hotelelandariego.com/sitemap.xml
 
 # Crawl-delay
 Crawl-delay: 1
