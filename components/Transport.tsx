@@ -65,7 +65,7 @@ export function Transport() {
             <div className="flex justify-center mb-4 sm:mb-6">
               <div className="flex items-center justify-center">
                 <Image
-                  src="/assets/logo/logo_andariegotour.jpg"
+                  src="/assets/logo/LogoAndariegoTour-01.png"
                   alt="Logo ANDARIEGOTUR"
                   width={168}
                   height={168}

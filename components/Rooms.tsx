@@ -54,7 +54,7 @@ export function Rooms() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           title="Nuestras Habitaciones"
-          subtitle="DeEspacios pensados para viajeros individuales, escapadas en pareja, estadías familiares o experiencias compartidas."
+          subtitle="Espacios pensados para viajeros individuales, escapadas en pareja, estadías familiares o experiencias compartidas."
         />
 
         {/* Mobile Carousel - visible only on small screens */}
@@ -83,7 +83,7 @@ export function Rooms() {
           {/* Mobile Navigation arrows */}
           <button
             onClick={prevMobileSlide}
-            className="absolute left-0 top-1/2 z-10 w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="absolute -left-3 top-1/2 z-10 w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-110"
             style={{
               background: 'var(--terracotta)',
               color: 'white',
@@ -97,7 +97,7 @@ export function Rooms() {
           </button>
           <button
             onClick={nextMobileSlide}
-            className="absolute right-0 top-1/2 z-10 w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-110"
+            className="absolute -right-3 top-1/2 z-10 w-10 h-10 flex items-center justify-center transition-all duration-300 hover:scale-110"
             style={{
               background: 'var(--terracotta)',
               color: 'white',

@@ -29,6 +29,7 @@ export const metadata: Metadata = {
     'Andes Ecuador viaje',
     'hotel boutique Otavalo',
     'alojamiento Imbabura',
+    'mejores hoteles en Otavalo',
   ],
   authors: [{ name: 'Hotel El Andariego' }],
   creator: 'Hotel El Andariego',

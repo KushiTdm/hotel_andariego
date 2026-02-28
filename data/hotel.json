@@ -200,7 +200,7 @@
       "type": "Habitación Quíntuple",
       "slug": "quintuple",
       "quantity": 1,
-      "capacity": 4,
+      "capacity": 5,
       "description": "Nuestra habitación más grande, perfecta para familias numerosas o grupos de amigos.",
       "amenities": ["wifi", "tv", "shower"],
       "images": [
@@ -223,8 +223,8 @@
       "type": "Dormitorio Compartido",
       "slug": "dormitorio-compartido",
       "quantity": 1,
-      "capacity": 8,
-      "description": "Ideal para parejas, familias y mochileros.",
+      "capacity": 4,
+      "description": "Dormitorio acogedor para mochileros, con literas y casilleros seguros. Perfecto para conocer a otros viajeros.",
       "amenities": ["wifi", "shower"],
       "images": [
         {

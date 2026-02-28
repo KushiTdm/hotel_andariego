@@ -8,7 +8,7 @@ const aboutFeatures = [
   { icon: CheckCircle, title: 'Ubicación céntrica', sub: 'A 2 min del mercado' },
   { icon: Award, title: 'Servicio auténtico', sub: 'Equipo local 24/7' },
   { icon: Star, title: 'Vista panorámica', sub: 'Terraza con vista a las montañas' },
-  { icon: Users, title: 'Para todo tipo de viajeros', sub: 'Ideal para parejas, familias y mochileros' },
+  { icon: Users, title: 'Todo tipo de viajeros', sub: 'Ideal para parejas, familias y mochileros' },
 ];
 
 export function About() {
@@ -66,25 +66,24 @@ export function About() {
               className="text-base sm:text-lg mb-4 sm:mb-5 leading-relaxed"
               style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
             >
-              Situado en el corazón de Otavalo, capital artesanal del Ecuador, nuestro hotel es el
-              punto de partida ideal para descubrir la riqueza cultural de la ciudad, sus lagunas y
-              las comunidades indígenas que conservan tradiciones milenarias.
-            </p>
-            <p
-              className="text-base sm:text-lg mb-4 sm:mb-5 leading-relaxed"
-              style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
-            >
               Desde 2016 ofrecemos un espacio acogedor que combina comodidad y ubicación estratégica,
               a pocos pasos de la emblemática Plaza de los Ponchos, donde cada sábado se vive la feria
               artesanal más grande de Sudamérica.
             </p>
             <p
+              className="text-base sm:text-lg mb-4 sm:mb-5 leading-relaxed"
+              style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
+            >
+              Situado en el corazón de Otavalo, capital artesanal del Ecuador, nuestro hotel es el
+              punto de partida ideal para descubrir la riqueza cultural de la ciudad, sus lagunas y
+              las comunidades indígenas que conservan tradiciones milenarias.
+            </p>
+            <p
               className="text-base sm:text-lg mb-6 sm:mb-8 leading-relaxed"
               style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--warm-brown-light)' }}
             >
-              Contamos con {hotelData.info.rooms} habitaciones distribuidas en tres pisos, con capacidad
-              para recibir hasta {hotelData.info.capacity} viajeros en un ambiente cálido que refleja
-              la identidad local.
+              Contamos con 16 habitaciones distribuidas en tres pisos, con capacidad para recibir
+              hasta 35 viajeros en un ambiente cálido que refleja la identidad local.
             </p>
 
             <div className="grid grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-10">
