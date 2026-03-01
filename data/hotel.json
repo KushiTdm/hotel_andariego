@@ -88,13 +88,13 @@
       "id": "parking",
       "name": "Estacionamiento",
       "icon": "ParkingCircle",
-      "description": "Estacionamiento al frente del hotel (de pago)"
+      "description": "Estacionamiento al frente del hotel"
     },
     {
       "id": "laundry",
       "name": "Lavandería",
       "icon": "Shirt",
-      "description": "Servicio de lavandería (de pago)"
+      "description": "Servicio de lavandería"
     }
   ],
   "pets": "Pequeñas mascotas aceptadas",
@@ -159,7 +159,7 @@
       "slug": "matrimonial",
       "quantity": 7,
       "capacity": 2,
-      "description": "Habitación cómoda con cama matrimonial, ideal para parejas. Su decoración incorpora detalles en colores tradicionales que aportan identidad y armonía al espacio.",
+      "description": "Habitación cómoda con cama matrimonial, ideal para parejas.",
       "amenities": ["wifi", "tv", "shower", "balcony"],
       "images": [
         {
@@ -196,29 +196,6 @@
       ]
     },
     {
-      "id": "quintuple",
-      "type": "Habitación Quíntuple",
-      "slug": "quintuple",
-      "quantity": 1,
-      "capacity": 5,
-      "description": "Nuestra habitación más grande, perfecta para familias numerosas o grupos de amigos.",
-      "amenities": ["wifi", "tv", "shower"],
-      "images": [
-        {
-          "src": "/assets/rooms/dormitory_room.webp",
-          "alt": "Habitación quíntuple familiar en el Hotel El Andariego Otavalo"
-        },
-        {
-          "src": "/assets/rooms/quintuple_room_2.webp",
-          "alt": "Espacio amplio para familias en la habitación quíntuple"
-        },
-        {
-          "src": "/assets/rooms/bathroom_2.webp",
-          "alt": "Baño privado en la habitación quíntuple del Hotel El Andariego"
-        }
-      ]
-    },
-    {
       "id": "dormitorio",
       "type": "Dormitorio Compartido",
       "slug": "dormitorio-compartido",
@@ -238,6 +215,29 @@
         {
           "src": "/assets/rooms/bathroom_2.webp",
           "alt": "Baño privado en el dormitorio compartido del Hotel El Andariego"
+        }
+      ]
+    },
+    {
+      "id": "quintuple",
+      "type": "Habitación Quíntuple",
+      "slug": "quintuple",
+      "quantity": 1,
+      "capacity": 5,
+      "description": "Nuestra habitación más grande, perfecta para familias numerosas o grupos de amigos.",
+      "amenities": ["wifi", "tv", "shower"],
+      "images": [
+        {
+          "src": "/assets/rooms/dormitory_room.webp",
+          "alt": "Habitación quíntuple familiar en el Hotel El Andariego Otavalo"
+        },
+        {
+          "src": "/assets/rooms/quintuple_room_2.webp",
+          "alt": "Espacio amplio para familias en la habitación quíntuple"
+        },
+        {
+          "src": "/assets/rooms/bathroom_2.webp",
+          "alt": "Baño privado en la habitación quíntuple del Hotel El Andariego"
         }
       ]
     }
