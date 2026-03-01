@@ -62,14 +62,14 @@ export function Transport() {
 
           {/* Contenu texte */}
           <div className="order-1 md:order-2">
-            <div className="flex justify-center mb-4 sm:mb-6">
+            <div className="flex justify-center mb-0 sm:mb-6 -mt-6 sm:mt-0">
               <div className="flex items-center justify-center">
                 <Image
                   src="/assets/logo/LogoAndariegoTour-01.png"
                   alt="Logo ANDARIEGOTUR"
-                  width={168}
-                  height={168}
-                  className="object-contain"
+                  width={280}
+                  height={280}
+                  className="object-contain w-64 h-64 sm:w-44 sm:h-44 md:w-48 md:h-48"
                 />
               </div>
             </div>

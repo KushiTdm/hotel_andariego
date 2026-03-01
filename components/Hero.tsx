@@ -39,15 +39,15 @@ export function Hero({ whatsappMessage }: HeroProps) {
 
       <div className="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
         {/* Kichwa-inspired ornament */}
-        <div className="flex items-center justify-center gap-4 mb-6 fade-in-up delay-1">
-          <div className="h-px w-16 opacity-60" style={{ background: 'var(--ochre)' }} />
+        <div className="flex items-center justify-center gap-2 sm:gap-4 mb-6 fade-in-up delay-1">
+          <div className="h-px w-8 sm:w-16 opacity-60" style={{ background: 'var(--ochre)' }} />
           <span
-            className="text-sm tracking-[0.35em] uppercase opacity-80"
+            className="text-sm tracking-[0.35em] uppercase opacity-80 whitespace-nowrap"
             style={{ fontFamily: "'Crimson Pro', serif", color: 'var(--ochre-light)' }}
           >
             Otavalo · Ecuador
           </span>
-          <div className="h-px w-16 opacity-60" style={{ background: 'var(--ochre)' }} />
+          <div className="h-px w-8 sm:w-16 opacity-60" style={{ background: 'var(--ochre)' }} />
         </div>
 
         <h1
