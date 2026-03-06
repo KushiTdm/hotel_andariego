@@ -88,7 +88,7 @@
       "id": "parking",
       "name": "Estacionamiento",
       "icon": "ParkingCircle",
-      "description": "Estacionamiento al frente del hotel"
+      "description": "Estacionamiento al frente del Hotel"
     },
     {
       "id": "laundry",
@@ -139,14 +139,14 @@
       "description": "Habitación espaciosa con dos camas individuales, perfecta para amigos o familia.",
       "amenities": ["wifi", "tv", "shower"],
       "images": [
-           {
+        {
           "src": "/assets/rooms/double_room_2.webp",
           "alt": "Vista adicional de la habitación doble en Otavalo Ecuador"
-        },{
+        },
+        {
           "src": "/assets/rooms/double_room.webp",
           "alt": "Habitación doble con dos camas individuales en el Hotel El Andariego"
         },
-     
         {
           "src": "/assets/rooms/bathroom.webp",
           "alt": "Baño privado en la habitación doble del Hotel El Andariego"
@@ -168,7 +168,7 @@
         },
         {
           "src": "/assets/rooms/matrimonial_room_2.webp",
-          "alt": "Detalles de decoración andina en la habitación matrimonial"
+          "alt": "Detalles de decoración andina en la habitación matrimonial del Hotel El Andariego"
         },
         {
           "src": "/assets/rooms/bathroom_2.webp",
@@ -187,7 +187,7 @@
       "images": [
         {
           "src": "/assets/rooms/triple_room.webp",
-          "alt": "Habitación triple espaciosa con escritorio y sofá en Otavalo"
+          "alt": "Habitación triple espaciosa con escritorio y sofá en Hotel El Andariego Otavalo"
         },
         {
           "src": "/assets/rooms/bathroom_2.webp",
@@ -210,7 +210,7 @@
         },
         {
           "src": "/assets/rooms/dormitory_room_2.webp",
-          "alt": "Ambiente social del dormitorio compartido andino"
+          "alt": "Ambiente social del dormitorio compartido Hotel El Andariego"
         },
         {
           "src": "/assets/rooms/bathroom_2.webp",
@@ -233,7 +233,7 @@
         },
         {
           "src": "/assets/rooms/quintuple_room_2.webp",
-          "alt": "Espacio amplio para familias en la habitación quíntuple"
+          "alt": "Espacio amplio para familias en la habitación quíntuple Hotel El Andariego"
         },
         {
           "src": "/assets/rooms/bathroom_2.webp",
@@ -249,7 +249,7 @@
     },
     {
       "src": "/assets/common_area/common_space_with_sofa.webp",
-      "alt": "Espacio común cómodo con sofá en el hotel Otavalo"
+      "alt": "Espacio común cómodo con sofá en el Hotel El Andariego Otavalo"
     },
     {
       "src": "/assets/common_area/kitchen.webp",
@@ -257,7 +257,7 @@
     },
     {
       "src": "/assets/common_area/sofa_table.webp",
-      "alt": "Salón acogedor con mesa en el hotel Otavalo Ecuador"
+      "alt": "Salón acogedor con mesa en el Hotel El Andariego Otavalo Ecuador"
     }
   ],
   "hero": {
@@ -279,7 +279,7 @@
     },
     {
       "src": "/assets/common_area/common_space_with_sofa.webp",
-      "alt": "Bar y espacio de restaurante en el hotel Otavalo"
+      "alt": "Bar y espacio de restaurante en el Hotel El Andariego Otavalo"
     },
     {
       "src": "/assets/common_area/bibliotheca_sofa.webp",
@@ -287,7 +287,7 @@
     },
     {
       "src": "/assets/common_area/kitchen.webp",
-      "alt": "Baño privado en las habitaciones del hotel Otavalo"
+      "alt": "Cocina del Hotel El Andariego Otavalo"
     }
   ]
 }

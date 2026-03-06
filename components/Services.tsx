@@ -33,6 +33,7 @@ export function Services() {
           {hotelData.services.map((service) => {
             const Icon = iconMap[service.icon] || Star;
             const isPaid = service.id === 'parking' || service.id === 'laundry';
+            const isOptional = service.id === 'breakfast';
             return (
               <div
                 key={service.id}
@@ -53,7 +54,16 @@ export function Services() {
                   className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base"
                   style={{ fontFamily: "'Playfair Display', serif", color: 'var(--warm-brown)' }}
                 >
-                  {service.name}{isPaid ? ' (de pago)' : ''}
+                  {service.name}
+                  {isPaid && ' (de pago)'}
+                  {isOptional && (
+                    <span
+                      className="block text-xs font-normal mt-0.5"
+                      style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}
+                    >
+                      (opcional)
+                    </span>
+                  )}
                 </h3>
                 <p
                   className="text-xs sm:text-sm leading-relaxed hidden sm:block"

@@ -13,6 +13,7 @@ export function Rooms() {
   const [currentMobileSlide, setCurrentMobileSlide] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const isSwiping = useRef(false);          // ← NEW: track if a real swipe occurred
   const carouselRef = useRef<HTMLDivElement>(null);
 
   const nextSlide = () => setRoomSlide((prev) => (prev + 1) % totalSlides);
@@ -23,7 +24,6 @@ export function Rooms() {
     roomSlide * roomsPerSlide + roomsPerSlide
   );
 
-  // Mobile carousel navigation
   const nextMobileSlide = () => {
     setCurrentMobileSlide((prev) => (prev + 1) % hotelData.rooms.length);
   };
@@ -34,19 +34,27 @@ export function Rooms() {
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = e.touches[0].clientX; // reset end to start
+    isSwiping.current = false;
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
+    // Mark as swiping only if horizontal movement exceeds threshold
+    if (Math.abs(touchEndX.current - touchStartX.current) > 10) {
+      isSwiping.current = true;
+    }
   };
 
   const handleTouchEnd = () => {
     const diff = touchStartX.current - touchEndX.current;
-    if (diff > 50) {
+    // Only trigger slide change if it was a real swipe (>50px) — not a tap
+    if (isSwiping.current && diff > 50) {
       nextMobileSlide();
-    } else if (diff < -50) {
+    } else if (isSwiping.current && diff < -50) {
       prevMobileSlide();
     }
+    isSwiping.current = false;
   };
 
   return (
@@ -91,7 +99,7 @@ export function Rooms() {
               boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
               transform: 'translateY(-50%)',
             }}
-            aria-label="Précédent"
+            aria-label="Anterior"
           >
             <ChevronLeft className="w-5 h-5" />
           </button>
@@ -105,7 +113,7 @@ export function Rooms() {
               boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
               transform: 'translateY(-50%)',
             }}
-            aria-label="Suivant"
+            aria-label="Siguiente"
           >
             <ChevronRight className="w-5 h-5" />
           </button>
@@ -123,7 +131,7 @@ export function Rooms() {
                   borderRadius: '4px',
                   background: currentMobileSlide === i ? 'var(--terracotta)' : 'var(--cream-dark)',
                 }}
-                aria-label={`Aller à la chambre ${i + 1}`}
+                aria-label={`Ir a la habitación ${i + 1}`}
               />
             ))}
           </div>
@@ -141,7 +149,7 @@ export function Rooms() {
               boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
               transform: 'translateY(-50%) translateX(-50%)',
             }}
-            aria-label="Précédent"
+            aria-label="Anterior"
           >
             <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
           </button>
@@ -155,7 +163,7 @@ export function Rooms() {
               boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
               transform: 'translateY(-50%) translateX(50%)',
             }}
-            aria-label="Suivant"
+            aria-label="Siguiente"
           >
             <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
           </button>
@@ -178,7 +186,7 @@ export function Rooms() {
                   background: roomSlide === i ? 'var(--terracotta)' : 'var(--cream-dark)',
                   transform: roomSlide === i ? 'scale(1.2)' : 'scale(1)',
                 }}
-                aria-label={`Aller au groupe ${i + 1}`}
+                aria-label={`Ir al grupo ${i + 1}`}
               />
             ))}
           </div>

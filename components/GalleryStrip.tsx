@@ -4,18 +4,19 @@ import Image from 'next/image';
 import { useState, useEffect, useCallback, useRef } from 'react';
 
 const allCommonAreaPhotos = [
-  { src: '/assets/common_area/bibliotheca_sofa.webp', alt: 'Biblioteca con sofá hotel el Andariego' },
-  { src: '/assets/common_area/colored_stairs.webp', alt: 'Escaleras coloridas hotel el Andariego' },
-  { src: '/assets/common_area/common_path.webp', alt: 'Camino común hotel el Andariego' },
-  { src: '/assets/common_area/common_space_with_sofa.webp', alt: 'Espacio común con sofá hotel el Andariego' },
-  { src: '/assets/common_area/entry_desk_sofa.webp', alt: 'Recepción con sofá hotel el Andariego' },
-  { src: '/assets/common_area/hotel_building.webp', alt: 'Edificio hotel el Andariego' },
-  { src: '/assets/common_area/kitchen.webp', alt: 'Cocina hotel el Andariego' },
-  { src: '/assets/common_area/reception.webp', alt: 'Recepción hotel el Andariego' },
-  { src: '/assets/common_area/salon.webp', alt: 'Salón hotel el Andariego' },
-  { src: '/assets/common_area/sofa_table.webp', alt: 'Sofá y mesa hotel el Andariego' },
-  { src: '/assets/common_area/table_bar.webp', alt: 'Mesa bar hotel el Andariego' },
-  { src: '/assets/common_area/terraza.webp', alt: 'Terraza hotel el Andariego' },
+  { src: '/assets/common_area/bibliotheca_sofa.webp', alt: 'Biblioteca con sofá Hotel El Andariego' },
+  { src: '/assets/common_area/colored_stairs.webp', alt: 'Escaleras coloridas Hotel El Andariego' },
+  { src: '/assets/common_area/common_path.webp', alt: 'Camino común Hotel El Andariego' },
+  { src: '/assets/common_area/common_space_with_sofa.webp', alt: 'Espacio común con sofá Hotel El Andariego' },
+  { src: '/assets/common_area/entry_desk_sofa.webp', alt: 'Recepción con sofá Hotel El Andariego' },
+  { src: '/assets/common_area/hotel_building.webp', alt: 'Edificio Hotel El Andariego' },
+  { src: '/assets/common_area/kitchen.webp', alt: 'Cocina Hotel El Andariego' },
+  { src: '/assets/common_area/reception.webp', alt: 'Recepción Hotel El Andariego' },
+  { src: '/assets/common_area/salon.webp', alt: 'Salón Hotel El Andariego' },
+  { src: '/assets/common_area/sofa_table.webp', alt: 'Sofá y mesa Hotel El Andariego' },
+  { src: '/assets/common_area/table_bar.webp', alt: 'Mesa bar Hotel El Andariego' },
+  { src: '/assets/common_area/terraza.webp', alt: 'Terraza Hotel El Andariego' },
+  { src: '/assets/common_area/restaurant.webp', alt: 'Restaurante del Hotel El Andariego' },
 ];
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -65,7 +66,6 @@ export function GalleryStrip() {
     return queue.photos[0];
   }, []);
 
-  // Stagger reveal on scroll into view
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -87,12 +87,10 @@ export function GalleryStrip() {
     return () => obs.disconnect();
   }, []);
 
-  // Image rotation: exiting → swap → entering → idle
   useEffect(() => {
     const interval = setInterval(() => {
       const idx = Math.floor(Math.random() * 4);
 
-      // Step 1: mark slot as exiting, preload next
       setSlots((prev) => {
         const srcs = prev.map((s) => s.current.src);
         const next = getNextPhoto(srcs);
@@ -101,7 +99,6 @@ export function GalleryStrip() {
         return updated;
       });
 
-      // Step 2: swap image, enter phase
       setTimeout(() => {
         setSlots((prev) => {
           const updated = [...prev];
@@ -112,7 +109,6 @@ export function GalleryStrip() {
         });
       }, 500);
 
-      // Step 3: idle
       setTimeout(() => {
         setSlots((prev) => {
           const updated = [...prev];
@@ -132,7 +128,6 @@ export function GalleryStrip() {
       className="py-12 sm:py-16 px-4 relative overflow-hidden"
       style={{ backgroundColor: 'var(--warm-brown)' }}
     >
-      {/* Subtle noise texture */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -142,7 +137,6 @@ export function GalleryStrip() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Header */}
         <div className="flex items-center justify-center gap-3 sm:gap-5 mb-6 sm:mb-8">
           <div
             className="h-px w-8 sm:w-12 md:w-16"
@@ -164,7 +158,6 @@ export function GalleryStrip() {
           />
         </div>
 
-        {/* Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3">
           {slots.map((slot, i) => {
             const isExiting = slot.phase === 'exiting';
@@ -177,13 +170,11 @@ export function GalleryStrip() {
                 style={{
                   borderRadius: '2px',
                   height: '180px',
-                  // Stagger reveal
                   opacity: revealed[i] ? 1 : 0,
                   transform: revealed[i] ? 'translateY(0)' : 'translateY(28px)',
                   transition: `opacity 0.6s ease ${i * 0.14}s, transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94) ${i * 0.14}s`,
                 }}
               >
-                {/* Andean textile stripe — thickens on hover */}
                 <div
                   className="absolute top-0 left-0 right-0 z-20"
                   style={{
@@ -193,7 +184,6 @@ export function GalleryStrip() {
                   }}
                 />
 
-                {/* Image wrapper — handles exit/enter transforms */}
                 <div
                   className="gallery-img-wrap absolute inset-0"
                   style={{
@@ -220,7 +210,6 @@ export function GalleryStrip() {
                   />
                 </div>
 
-                {/* Andean shimmer flash on entering */}
                 <div
                   className="absolute inset-0 z-10 pointer-events-none"
                   style={{
@@ -230,7 +219,6 @@ export function GalleryStrip() {
                   }}
                 />
 
-                {/* Permanent gradient overlay */}
                 <div
                   className="absolute inset-0 z-10 pointer-events-none"
                   style={{
@@ -238,7 +226,6 @@ export function GalleryStrip() {
                   }}
                 />
 
-                {/* Caption — revealed on hover via CSS */}
                 <div
                   className="gallery-caption absolute bottom-0 left-0 right-0 z-20 px-3 pb-3 pt-6"
                   style={{
@@ -261,7 +248,6 @@ export function GalleryStrip() {
                   </p>
                 </div>
 
-                {/* Hover corner diamond */}
                 <span
                   className="gallery-diamond absolute top-3 right-3 z-20 text-xs pointer-events-none"
                   style={{
@@ -278,7 +264,6 @@ export function GalleryStrip() {
           })}
         </div>
 
-        {/* Bottom ornament */}
         <div
           className="mt-8 mx-auto"
           style={{
@@ -290,7 +275,6 @@ export function GalleryStrip() {
         />
       </div>
 
-      {/* Scoped group-hover CSS */}
       <style>{`
         .gallery-cell:hover .gallery-caption {
           transform: translateY(0) !important;
