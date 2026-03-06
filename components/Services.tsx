@@ -58,10 +58,10 @@ export function Services() {
                   {isPaid && ' (de pago)'}
                   {isOptional && (
                     <span
-                      className="block text-xs font-normal mt-0.5"
-                      style={{ color: 'var(--warm-brown-light)', fontFamily: "'Crimson Pro', serif" }}
+                      className="font-bold"
+                      style={{ color: 'var(--warm-brown)' }}
                     >
-                      (opcional)
+                      {' '}(opcional)
                     </span>
                   )}
                 </h3>
