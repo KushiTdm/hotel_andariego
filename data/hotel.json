@@ -139,14 +139,14 @@
       "description": "Habitación espaciosa con dos camas individuales, perfecta para amigos o familia.",
       "amenities": ["wifi", "tv", "shower"],
       "images": [
-        {
+           {
+          "src": "/assets/rooms/double_room_2.webp",
+          "alt": "Vista adicional de la habitación doble en Otavalo Ecuador"
+        },{
           "src": "/assets/rooms/double_room.webp",
           "alt": "Habitación doble con dos camas individuales en el Hotel El Andariego"
         },
-        {
-          "src": "/assets/rooms/double_room_2.webp",
-          "alt": "Vista adicional de la habitación doble en Otavalo Ecuador"
-        },
+     
         {
           "src": "/assets/rooms/bathroom.webp",
           "alt": "Baño privado en la habitación doble del Hotel El Andariego"
